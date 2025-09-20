@@ -77,7 +77,7 @@ const Header = ({
               borderColor={Colors.Border.PRIMARY}
               borderRadius={8}
               borderWidth={1}
-              iconTintColor={Colors.Text.PRIMARY}
+              iconTintColor={Colors.Icon.THEME}
               iconStyle={styles.iconStyle}
               style={styles.iconWidth}
             />
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     height: 20,
     width: 20,
   },
-  iconWidth: { width: '45%' },
+  iconWidth: { width: '40%' },
 });
 
 export default Header;
