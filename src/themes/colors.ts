@@ -57,6 +57,7 @@ export const LightColors: IColor = {
     LIGHT_RED: '#F9DADA',
     LIGHT_GRAY: '#727272',
     BUTTON_TEXT: '#dedbdbff',
+    FACEBOOK: '#4267b2',
   },
   Chip: {
     DISABLED: '#B7B7B7',
@@ -123,7 +124,7 @@ export const LightColors: IColor = {
   },
   SHADOW: {
     BACKGROUND: '#000000',
-    LIGHT_BG: '#252424ff'
+    LIGHT_BG: '#252424ff',
   },
   TRANSPARENT: 'transparent',
 };
@@ -179,3 +180,4 @@ export const DarkColors: IColor = {
     PRIMARY: '#515A5C',
   },
 };
+

@@ -1,4 +1,5 @@
 import {
+  ColorValue,
   StyleProp,
   StyleSheet,
   Text,
@@ -18,6 +19,7 @@ type AppTextProps = {
   containerStyles?: StyleProp<ViewStyle>;
   fontFamily?: string;
   fontSize?: number;
+  textColor?: ColorValue;
   numberOfLines?: number;
   ellipsizeMode?: 'head' | 'middle' | 'tail' | 'clip';
   selectable?: boolean;
@@ -29,11 +31,11 @@ const AppText = ({
   textStyles,
   textAlign,
   containerStyles,
+  textColor,
   fontFamily = FONT_FAMILIES.IBMPlexSans.Regular,
   fontSize = FONT_SIZES.Body,
   numberOfLines,
   ellipsizeMode = 'tail',
-
   selectable = false,
   testID,
 }: AppTextProps) => {
@@ -45,7 +47,12 @@ const AppText = ({
         style={[
           styles.defaultText,
           textStyles,
-          { fontFamily: fontFamily, fontSize, color: Colors.Text.PRIMARY, textAlign: textAlign },
+          {
+            fontFamily: fontFamily,
+            fontSize,
+            color: textColor ?? Colors.Text.PRIMARY,
+            textAlign: textAlign,
+          },
         ]}
         numberOfLines={numberOfLines}
         ellipsizeMode={ellipsizeMode}
@@ -57,7 +64,6 @@ const AppText = ({
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   defaultText: {
