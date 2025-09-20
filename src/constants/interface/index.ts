@@ -119,3 +119,13 @@ export interface IColor {
         DISABLED: string;
     };
 }
+
+export interface FontFamily {
+  Thin: string;
+  ExtraLight: string;
+  Light: string;
+  Regular: string;
+  Medium: string;
+  SemiBold: string;
+  Bold: string;
+}

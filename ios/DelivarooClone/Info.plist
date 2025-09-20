@@ -34,7 +34,52 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>RCTNewArchEnabled</key>
-	<false/>
+	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>IBMPlexSans-Bold.ttf</string>
+		<string>IBMPlexSans-BoldItalic.ttf</string>
+		<string>IBMPlexSans-ExtraLight.ttf</string>
+		<string>IBMPlexSans-ExtraLightItalic.ttf</string>
+		<string>IBMPlexSans-Italic.ttf</string>
+		<string>IBMPlexSans-Light.ttf</string>
+		<string>IBMPlexSans-LightItalic.ttf</string>
+		<string>IBMPlexSans-Medium.ttf</string>
+		<string>IBMPlexSans-MediumItalic.ttf</string>
+		<string>IBMPlexSans-Regular.ttf</string>
+		<string>IBMPlexSans-SemiBold.ttf</string>
+		<string>IBMPlexSans-SemiBoldItalic.ttf</string>
+		<string>IBMPlexSans-Thin.ttf</string>
+		<string>IBMPlexSans-ThinItalic.ttf</string>
+		<string>IBMPlexSans_Condensed-Bold.ttf</string>
+		<string>IBMPlexSans_Condensed-BoldItalic.ttf</string>
+		<string>IBMPlexSans_Condensed-ExtraLight.ttf</string>
+		<string>IBMPlexSans_Condensed-ExtraLightItalic.ttf</string>
+		<string>IBMPlexSans_Condensed-Italic.ttf</string>
+		<string>IBMPlexSans_Condensed-Light.ttf</string>
+		<string>IBMPlexSans_Condensed-LightItalic.ttf</string>
+		<string>IBMPlexSans_Condensed-Medium.ttf</string>
+		<string>IBMPlexSans_Condensed-MediumItalic.ttf</string>
+		<string>IBMPlexSans_Condensed-Regular.ttf</string>
+		<string>IBMPlexSans_Condensed-SemiBold.ttf</string>
+		<string>IBMPlexSans_Condensed-SemiBoldItalic.ttf</string>
+		<string>IBMPlexSans_Condensed-Thin.ttf</string>
+		<string>IBMPlexSans_Condensed-ThinItalic.ttf</string>
+		<string>IBMPlexSans_SemiCondensed-Bold.ttf</string>
+		<string>IBMPlexSans_SemiCondensed-BoldItalic.ttf</string>
+		<string>IBMPlexSans_SemiCondensed-ExtraLight.ttf</string>
+		<string>IBMPlexSans_SemiCondensed-ExtraLightItalic.ttf</string>
+		<string>IBMPlexSans_SemiCondensed-Italic.ttf</string>
+		<string>IBMPlexSans_SemiCondensed-Light.ttf</string>
+		<string>IBMPlexSans_SemiCondensed-LightItalic.ttf</string>
+		<string>IBMPlexSans_SemiCondensed-Medium.ttf</string>
+		<string>IBMPlexSans_SemiCondensed-MediumItalic.ttf</string>
+		<string>IBMPlexSans_SemiCondensed-Regular.ttf</string>
+		<string>IBMPlexSans_SemiCondensed-SemiBold.ttf</string>
+		<string>IBMPlexSans_SemiCondensed-SemiBoldItalic.ttf</string>
+		<string>IBMPlexSans_SemiCondensed-Thin.ttf</string>
+		<string>IBMPlexSans_SemiCondensed-ThinItalic.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>BootSplash</string>
 	<key>UIRequiredDeviceCapabilities</key>
