@@ -51,6 +51,7 @@ export interface IColor {
         DESCRIPTION_ICON: string;
         LIGHT_RED: string;
         LIGHT_GRAY: string;
+        BUTTON_TEXT: string;
     };
     Background: {
         PRIMARY: string;
@@ -118,6 +119,10 @@ export interface IColor {
         PRIMARY: string;
         DISABLED: string;
     };
+    SHADOW:{
+        BACKGROUND: string;
+        LIGHT_BG: string;
+    }
 }
 
 export interface FontFamily {
