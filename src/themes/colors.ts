@@ -56,6 +56,7 @@ export const LightColors: IColor = {
     DESCRIPTION_ICON: '#64748B',
     LIGHT_RED: '#F9DADA',
     LIGHT_GRAY: '#727272',
+    BUTTON_TEXT: '#dedbdbff',
   },
   Chip: {
     DISABLED: '#B7B7B7',
@@ -119,6 +120,10 @@ export const LightColors: IColor = {
     PRIMARY: '#00CCBC',
     UNFILLED: 'rgba(217,217,217,0.2)',
     DISABLED: '#F6F6F6',
+  },
+  SHADOW: {
+    BACKGROUND: '#000000',
+    LIGHT_BG: '#252424ff'
   },
   TRANSPARENT: 'transparent',
 };

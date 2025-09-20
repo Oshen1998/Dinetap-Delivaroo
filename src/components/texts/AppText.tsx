@@ -6,7 +6,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, { ReactNode } from 'react';
+import React, { memo, ReactNode } from 'react';
 import { FONT_FAMILIES, FONT_SIZES } from '../../constants/fonts.constants';
 import { useThemeStore } from '../../store/themeStore';
 import { LightColors } from '../../themes/colors';
@@ -58,7 +58,6 @@ const AppText = ({
   );
 };
 
-export default AppText;
 
 const styles = StyleSheet.create({
   defaultText: {
@@ -66,3 +65,5 @@ const styles = StyleSheet.create({
     color: LightColors.Text.PRIMARY,
   },
 });
+
+export default memo(AppText);
