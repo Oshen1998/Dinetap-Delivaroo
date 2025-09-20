@@ -4,19 +4,15 @@ module.exports = {
     [
       'module:react-native-dotenv',
       {
-        envName: 'APP_ENV',
         moduleName: '@env',
         path: '.env',
-        blocklist: null,
-        allowlist: null,
-        blacklist: null, // DEPRECATED
-        whitelist: null, // DEPRECATED
+        blocklist: null,        
+        allowlist: null,     
         safe: false,
         allowUndefined: true,
         verbose: false,
       },
     ],
+    'react-native-worklets/plugin',
   ],
-  
 };
-
