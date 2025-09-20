@@ -44,6 +44,7 @@ const AppButton = ({
   textStyles,
   iconStyle,
   customIcon,
+  textColor,
   backgroundColor,
   borderColor,
   borderWidth,
@@ -91,14 +92,16 @@ const AppButton = ({
         ) : (
           <React.Fragment>
             <View style={styles.iconContainer}>
-              {customIcon && isNear && (
+              {customIcon && isNear && !isStart && (
                 <Image
                   source={customIcon}
                   tintColor={iconTintColor}
                   style={iconStyle}
                 />
               )}
-              <AppText textStyles={textStyles}>{text}</AppText>
+              <AppText textStyles={textStyles} textColor={textColor}>
+                {text}
+              </AppText>
             </View>
           </React.Fragment>
         )}

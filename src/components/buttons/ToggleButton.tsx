@@ -23,12 +23,12 @@ const ToggleButton = ({
         {text}
       </AppText>
       <Switch
-        trackColor={{ false: Colors.Toggle.ON , true:  Colors.Toggle.ON }}
+        trackColor={{ false: Colors.Toggle.OFF , true:  Colors.Toggle.KNOB }}
         thumbColor={isEnabled ? Colors.Button.PRIMARY : Colors.Toggle.KNOB}
         ios_backgroundColor={Colors.Toggle.OFF}
         onValueChange={toggleSwitch}
         value={isEnabled}
-        style={{ transform: [{ scaleX: 0.6 }, { scaleY: 0.6 }] }}
+        style={{ transform: [{ scaleX: 0.75 }, { scaleY: 0.75 }] }}
       />
     </View>
   );
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   textStyles: {
-    fontWeight: '500',
+    fontWeight: '700',
   },
 });
 
