@@ -5,68 +5,66 @@ import {
   DrawerHeaderProps,
 } from '@react-navigation/drawer';
 import HomeScreen from '../features/home/screens/HomeScreen';
-import AuthScreen from '../features/auth/views/AuthScreen';
-import Header, { HeaderAction } from './header';
+import Header, { HeaderAction } from './Header';
 import { images } from '../themes/images';
-import DrawerContent from './drawer';
-import { useNavigation } from '@react-navigation/native';
+import DrawerContent from './Drawer';
 import { useThemeStore } from '../store/themeStore';
+import RestaurantScreen from '../features/restaurants/screens/RestaurantScreen';
+import { ROUTES } from '../constants/enums/navigation.enum';
 
 export type DrawerParamList = {
-  Home: undefined;
-  Account: undefined;
+  [ROUTES.HOME]: undefined;
+  [ROUTES.RESTAURANTS]: undefined;
 };
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
 
-const InitialHeader = (
-  navigation: DrawerHeaderProps,
+export const MainHeader = (
+  { navigation }: DrawerHeaderProps,
   actions: HeaderAction[],
-) => (
-  <Header
-    logoSource={images.logos.appLogo}
-    onLogoPress={() => navigation.navigation.toggleDrawer()}
-    actions={actions}
-  />
-);
+) => {
+  return (
+    <Header
+      logoSource={images.logos.appLogo}
+      actions={actions}
+      onLogoPress={() => navigation.navigate('Home')}
+    />
+  );
+};
 
 const InitDrawerContent = (props: DrawerContentComponentProps) => (
   <DrawerContent {...props} />
 );
 
 const RootNavigation = () => {
-
-  const {Colors} = useThemeStore();
-  const nav = useNavigation();
-
-  const actions = [
-    {
-      key: 'HOME',
-      icon: images.icons.home,
-      onPress: () => nav.navigate('Home' as never),
-    },
-    {
-      key: 'SIGNUP',
-      icon: images.icons.person,
-      onPress: () => nav.navigate('Account' as never),
-    },
-  ];
+  const { Colors } = useThemeStore();
 
   return (
     <Drawer.Navigator
-      initialRouteName="Home"
+      initialRouteName={ROUTES.HOME}
       drawerContent={props => InitDrawerContent(props)}
       screenOptions={{
         drawerType: 'slide',
-        header: navigation => InitialHeader(navigation, actions),
-        drawerActiveTintColor: Colors.Text.PRIMARY, 
-        drawerInactiveTintColor: Colors.Text.PRIMARY, 
+        drawerPosition: 'right',
+        header: navigation => {
+          const actions = [
+            {
+              key: 'SIGNUP',
+              icon: images.icons.drawer,
+              onPress: () => navigation.navigation.toggleDrawer(),
+            },
+          ];
+          return MainHeader(navigation, actions);
+        },
+        drawerActiveTintColor: Colors.Text.PRIMARY,
+        drawerInactiveTintColor: Colors.Text.PRIMARY,
       }}
     >
-      <Drawer.Screen name="Home" component={HomeScreen} />
-      <Drawer.Screen name="Account" component={AuthScreen} />
+      <Drawer.Screen name={ROUTES.HOME} component={HomeScreen} />
+      <Drawer.Screen name={ROUTES.RESTAURANTS} component={RestaurantScreen} />
     </Drawer.Navigator>
   );
 };
+
 
 export default RootNavigation;

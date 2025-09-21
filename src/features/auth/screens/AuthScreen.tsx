@@ -104,10 +104,10 @@ const AuthScreen = () => {
                 textAlign="center"
               >
                 By continuing you agree to our{' '} <AppPressableText text="T&C" />.
-                Please also check out our
+                Please also check out our{' '}
                 <AppPressableText text="Privacy Policy" />. We use your data to
-                offer you a personalised experience and to better understand and
-                improve our services.
+                offer you a personalized experience and to better understand and
+                improve our services.{' '}
                 <AppPressableText text="For more information see here." />
               </AppText>
             </View>

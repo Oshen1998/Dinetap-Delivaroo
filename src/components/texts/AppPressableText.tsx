@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
   textStyle: {
     textDecorationLine: 'underline',
     color: LightColors.Border.THEME,
+    top: 4
   },
 });
 

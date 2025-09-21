@@ -72,7 +72,7 @@ export const LightColors: IColor = {
     THEME: '#00CCBC',
     ERROR: '#FF5252',
     DISABLED: '#71727A',
-    BLENDING: '#5CD082', // Icons which blends with background
+    BLENDING: '#5CD082',
     TabBar: {
       ACTIVE: '#00CCBC',
       INACTIVE: '#B1B1B1',
