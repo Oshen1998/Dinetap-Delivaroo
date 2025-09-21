@@ -11,6 +11,7 @@ import DrawerContent from './Drawer';
 import { useThemeStore } from '../store/themeStore';
 import RestaurantScreen from '../features/restaurants/screens/RestaurantScreen';
 import { ROUTES } from '../constants/enums/navigation.enum';
+import { StyleSheet } from 'react-native';
 
 export type DrawerParamList = {
   [ROUTES.HOME]: undefined;
@@ -44,6 +45,9 @@ const RootNavigation = () => {
       initialRouteName={ROUTES.HOME}
       drawerContent={props => InitDrawerContent(props)}
       screenOptions={{
+        drawerItemStyle: {
+          ...styles.drawerStyles,
+        },
         drawerType: 'slide',
         drawerPosition: 'right',
         header: navigation => {
@@ -66,5 +70,12 @@ const RootNavigation = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  drawerStyles: {
+    borderRadius: 10,
+    marginHorizontal: 10,
+    marginVertical: 5,
+  },
+});
 
 export default RootNavigation;
