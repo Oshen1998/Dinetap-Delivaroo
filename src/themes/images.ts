@@ -11,6 +11,22 @@ export const images = {
     person: require('../assets/icons/person/person.png') as ImageSourcePropType,
     home: require('../assets/icons/home/home.png') as ImageSourcePropType,
     email: require('../assets/icons/email/email.png') as ImageSourcePropType,
+    navigate: require('../assets/icons/navigator/Send.png') as ImageSourcePropType,
+  },
+
+  images:{
+    homeDeco: require('../assets/images/home.png') as ImageSourcePropType,
+    foods: {
+      food1: require('../assets/images/foods/food.png') as ImageSourcePropType,
+      food2: require('../assets/images/foods/food2.png') as ImageSourcePropType,
+      food4: require('../assets/images/foods/food4.png') as ImageSourcePropType,
+      food5: require('../assets/images/foods/food5.png') as ImageSourcePropType,
+      food6: require('../assets/images/foods/food6.png') as ImageSourcePropType,
+      food7: require('../assets/images/foods/food7.png') as ImageSourcePropType,
+      food8: require('../assets/images/foods/food8.png') as ImageSourcePropType,
+      food9: require('../assets/images/foods/food9.png') as ImageSourcePropType,
+      food10: require('../assets/images/foods/food10.png') as ImageSourcePropType,
+    }
   },
 
   logos:{
