@@ -4,8 +4,8 @@ import {
   DrawerContentComponentProps,
   DrawerHeaderProps,
 } from '@react-navigation/drawer';
-import HomeScreen from '../features/home/HomeScreen';
-import AuthScreen from '../features/auth/AuthScreen';
+import HomeScreen from '../features/home/screens/HomeScreen';
+import AuthScreen from '../features/auth/views/AuthScreen';
 import Header, { HeaderAction } from './header';
 import { images } from '../themes/images';
 import DrawerContent from './drawer';
@@ -41,12 +41,12 @@ const RootNavigation = () => {
 
   const actions = [
     {
-      key: 'call',
+      key: 'HOME',
       icon: images.icons.home,
       onPress: () => nav.navigate('Home' as never),
     },
     {
-      key: 'video',
+      key: 'SIGNUP',
       icon: images.icons.person,
       onPress: () => nav.navigate('Account' as never),
     },
