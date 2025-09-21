@@ -6,6 +6,8 @@ import {
 } from '@react-navigation/drawer';
 import { useThemeStore } from '../store/themeStore';
 import ToggleButton from '../components/buttons/ToggleButton';
+import SignUpOrSignIn from '../features/auth/views/SignUpOrSignIn';
+import { StyleSheet, View } from 'react-native';
 
 type CustomDrawerProps = DrawerContentComponentProps;
 
@@ -18,14 +20,22 @@ const DrawerContent: React.FC<CustomDrawerProps> = props => {
       style={{ backgroundColor: Colors.Background.PRIMARY }}
     >
       <DrawerItemList {...props} />
-      <ToggleButton text='Change Theme' toggleSwitch={switchTheme} isEnabled={isDarkMode} />
-      {/* <DrawerItem
-        labelStyle={{ color: Colors.Text.PRIMARY }}
-        label="Close drawer"
-        onPress={() => props.navigation.closeDrawer()}
-      /> */}
+      <ToggleButton
+        text="Change Theme"
+        toggleSwitch={switchTheme}
+        isEnabled={isDarkMode}
+      />
+      <View style={styles.buttonContainer}>
+        <SignUpOrSignIn />
+      </View>
     </DrawerContentScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    alignSelf: 'center',
+  },
+});
 
 export default DrawerContent;

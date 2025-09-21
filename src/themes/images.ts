@@ -12,6 +12,7 @@ export const images = {
     home: require('../assets/icons/home/home.png') as ImageSourcePropType,
     email: require('../assets/icons/email/email.png') as ImageSourcePropType,
     navigate: require('../assets/icons/navigator/Send.png') as ImageSourcePropType,
+    drawer: require('../assets/icons/menu/Menu.png') as ImageSourcePropType,
   },
 
   images:{
