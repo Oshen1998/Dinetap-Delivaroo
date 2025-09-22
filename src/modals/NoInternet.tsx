@@ -72,10 +72,10 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: 25,
     backgroundColor: 'white',
     borderRadius: 10,
-    paddingBottom: 15,
+    paddingBottom: 25,
   },
   lottie: {
     width: 180,
