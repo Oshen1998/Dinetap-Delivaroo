@@ -4,7 +4,6 @@ import {
   DrawerContentComponentProps,
   DrawerHeaderProps,
 } from '@react-navigation/drawer';
-import HomeScreen from '../features/home/screens/HomeScreen';
 import Header, { HeaderAction } from './Header';
 import { images } from '../themes/images';
 import DrawerContent from './Drawer';
@@ -12,6 +11,10 @@ import { useThemeStore } from '../store/themeStore';
 import RestaurantScreen from '../features/restaurants/screens/RestaurantScreen';
 import { ROUTES } from '../constants/enums/navigation.enum';
 import { StyleSheet } from 'react-native';
+import HomeScreen from '../features/home/screens/HomeScreen';
+import { screenWidth } from '../utils/screens.util';
+import { MODAL_STACK } from '../modals/modal.constants';
+import { useModal } from 'react-native-modalfy';
 
 export type DrawerParamList = {
   [ROUTES.HOME]: undefined;
@@ -28,7 +31,7 @@ export const MainHeader = (
     <Header
       logoSource={images.logos.appLogo}
       actions={actions}
-      onLogoPress={() => navigation.navigate('Home')}
+      onLogoPress={() => navigation.navigate(ROUTES.HOME)}
     />
   );
 };
@@ -39,22 +42,49 @@ const InitDrawerContent = (props: DrawerContentComponentProps) => (
 
 const RootNavigation = () => {
   const { Colors } = useThemeStore();
+  const {openModal} = useModal();
+
+  const onHandleTranslations = () => {
+    openModal(MODAL_STACK.TRANSLATIONS);
+  };
 
   return (
     <Drawer.Navigator
       initialRouteName={ROUTES.HOME}
       drawerContent={props => InitDrawerContent(props)}
       screenOptions={{
-        drawerItemStyle: {
-          ...styles.drawerStyles,
+        drawerStyle: {
+          width: screenWidth,
         },
+        drawerItemStyle: {
+          ...styles.drawerItem,
+        },
+
         drawerType: 'slide',
         drawerPosition: 'right',
         header: navigation => {
           const actions = [
+            ...(navigation.route.name !== ROUTES.HOME
+              ? [
+                  {
+                    key: 'HOME',
+                    icon: images.icons.home,
+                    onPress: () => navigation.navigation.navigate(ROUTES.HOME),
+                  },
+                ]
+              : []),
+            ...(navigation.route.name === ROUTES.HOME
+              ? [
+                  {
+                    key: 'TRANSLATION',
+                    icon: images.icons.translate,
+                    onPress: onHandleTranslations,
+                  },
+                ]
+              : []),
             {
               key: 'SIGNUP',
-              icon: images.icons.drawer,
+              icon: images.icons.person,
               onPress: () => navigation.navigation.toggleDrawer(),
             },
           ];
@@ -71,8 +101,8 @@ const RootNavigation = () => {
 };
 
 const styles = StyleSheet.create({
-  drawerStyles: {
-    borderRadius: 10,
+  drawerItem: {
+    borderRadius: 5,
     marginHorizontal: 10,
     marginVertical: 5,
   },

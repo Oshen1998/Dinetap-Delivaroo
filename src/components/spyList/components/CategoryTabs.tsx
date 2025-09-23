@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     borderRadius: 20,
     marginHorizontal: 5,
-    ...getShadow(2),
+    
   },
   activeTab: {
     backgroundColor: LightColors.Button.PRIMARY,

@@ -69,6 +69,7 @@ export interface IColor {
     ICON: string;
     TAB_BAR: string;
     REDUCED_THEME: string;
+    OFF_WHITE: string;
     SUB_SECTION: string;
     TEXT_INPUT: string;
     BACK_BUTTON: string;

@@ -48,7 +48,7 @@ const AppButton = ({
   backgroundColor,
   borderColor,
   borderWidth,
-  borderRadius = 8,
+  borderRadius = 5,
   height = 48,
   loading = false,
   iconTintColor,
@@ -73,7 +73,6 @@ const AppButton = ({
     <TouchableOpacity
       style={buttonStyle}
       onPress={onPress}
-      disabled={disabled || loading}
       activeOpacity={0.8}
       {...props}
     >

@@ -270,7 +270,8 @@ const ScrollViewCategoryList = ({
 
       <View style={styles.infoRow}>
         <View style={styles.deliveryIcon}>
-          <AppText textStyles={styles.deliveryIconText}>🚴</AppText>
+          {/* <AppText textStyles={styles.deliveryIconText}>🚴</AppText> */}
+          <Image source={images.icons.bike}  style={styles.deliveryIconText}/>
         </View>
         <View style={styles.infoTextContainer}>
           <AppText
@@ -366,12 +367,12 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 16,
     right: 16,
-    borderRadius: 8,
+    borderRadius: 5,
     paddingHorizontal: 16,
     paddingVertical: 8,
     flexDirection: 'row',
     alignItems: 'center',
-    ...getShadow(5),
+    ...getShadow(2),
   },
   groupOrderIcon: {
     marginRight: 8,
@@ -434,8 +435,8 @@ export const styles = StyleSheet.create({
     marginRight: 16,
   },
   deliveryIconText: {
-    fontSize: 16,
-    transform: [{ scaleX: -1 }]
+    height: 25,
+    width: 25
   },
   infoTextContainer: {
     flex: 1,

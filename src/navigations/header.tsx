@@ -75,7 +75,7 @@ const Header = ({
               customIcon={action.icon}
               onPress={action.onPress}
               borderColor={Colors.Border.PRIMARY}
-              borderRadius={8}
+              borderRadius={3}
               borderWidth={1}
               iconTintColor={Colors.Icon.THEME}
               iconStyle={styles.iconStyle}
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     padding: 8,
-    borderRadius: 8,
+    borderRadius: 5,
   },
   logo: {
     width: 120,
@@ -121,15 +121,11 @@ const styles = StyleSheet.create({
     gap: 15,
     flex: 1,
   },
-  iconButtons: {
-    borderWidth: 1,
-    borderRadius: 8,
-  },
   iconStyle: {
     height: 20,
     width: 20,
   },
-  iconWidth: { width: '40%' },
+  iconWidth: { width: '32%' },
 });
 
 export default Header;
