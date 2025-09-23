@@ -1,60 +1,29 @@
 import React from 'react';
-import { FlatList, Alert, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { MenuItemData } from '../../../constants/interface/restaurant';
 import MenuItemCard from '../../../components/cards/restaurantCard/RestaurantItem';
-import { images } from '../../../themes/images';
-
-const DUMMY_DATA: MenuItemData[] = [
-  {
-    restaurantId: 'R1',
-    name: 'Shawarma Powerbowl + Drink + Side or Snack',
-    price: '£15.99',
-    description:
-      'A complete meal deal featuring our signature powerbowl, drink, and a choice of side.',
-    restaurantImage: images.images.foods.food1,
-    isPopular: false,
-  },
-  {
-    restaurantId: 'R2',
-    name: 'Shawarma Powerbowl + Drink',
-    price: '£13.99',
-    description:
-      'Our classic shawarma bowl with your choice of refreshing drink.',
-    restaurantImage: images.images.foods.food2,
-    isPopular: true, 
-  },
-  {
-    restaurantId: 'R3',
-    name: 'Avocado Caesar Salad + Drink',
-    price: '£13.99',
-    description:
-      'Fresh romaine, creamy avocado, classic Caesar dressing, and grilled chicken.',
-    restaurantImage: images.images.foods.food4,
-    isPopular: false,
-  },
-  {
-    restaurantId: 'R4',
-    name: 'Parmesan Chicken Salad + Drink',
-    price: '£12.99',
-    description:
-      'Crispy chicken fillet with shaved parmesan cheese and a zesty vinaigrette.',
-    restaurantImage: images.images.foods.food6,
-    isPopular: false,
-  },
-  {
-    restaurantId: 'R5',
-    name: 'Avocado Caesar Salad + Drink + Side or Snack',
-    price: '£15.99',
-    description:
-      'A complete healthy deal with salad, drink, and an extra snack.',
-    restaurantImage: images.images.foods.food8,
-    isPopular: false,
-  },
-];
+import useRestaurantStore from '../../../store/restaurantStore';
+import { useNavigation } from '@react-navigation/native';
+import { ROUTES } from '../../../constants/enums/navigation.enum';
+import { RESTAURANT_DUMMIES } from '../../../constants';
+import { useModal } from 'react-native-modalfy';
+import { MODAL_STACK } from '../../../modals/modal.constants';
 
 const RestaurantMenuList = () => {
-  const handleCardPress = (restaurantId: string) => {
-    Alert.alert('Navigate', `Pressed item with ID: ${restaurantId}`);
+  const { fetchData } = useRestaurantStore();
+  const { navigate } = useNavigation();
+  const { openModal, closeModal } = useModal();
+
+  const handleCardPress = async (restaurantId: number) => {
+    openModal(MODAL_STACK.LOADING, {
+      title: 'Just a moment...',
+      description: "We're getting things ready for you.",
+    });
+    await fetchData?.(Number(restaurantId));
+    navigate(ROUTES.CATEGORIES as never);
+    setTimeout(() => {
+      closeModal(MODAL_STACK.LOADING);
+    }, 3000);
   };
 
   const renderItem = ({ item }: { item: MenuItemData }) => (
@@ -64,9 +33,9 @@ const RestaurantMenuList = () => {
   return (
     <View style={listStyles.container}>
       <FlatList
-        data={DUMMY_DATA}
+        data={RESTAURANT_DUMMIES}
         renderItem={renderItem}
-        keyExtractor={item => item.restaurantId}
+        keyExtractor={item => item.restaurantId.toString()}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={listStyles.contentContainer}
       />

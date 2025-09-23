@@ -97,6 +97,7 @@ export const LightColors: IColor = {
     LIGHT_DESCRIPTION: '#AEAEAE',
     AMOUNT: '#666666',
     LIGHT_AMOUNT: '#038200',
+    AVACADO: '#568203',
     Chip: {
       ACTIVE: '#000000',
       INACTIVE: '#B1B1B1',

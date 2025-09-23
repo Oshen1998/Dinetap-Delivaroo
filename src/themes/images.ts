@@ -13,6 +13,9 @@ export const images = {
     email: require('../assets/icons/email/email.png') as ImageSourcePropType,
     navigate: require('../assets/icons/navigator/Send.png') as ImageSourcePropType,
     drawer: require('../assets/icons/menu/Menu.png') as ImageSourcePropType,
+    arrow_back: require('../assets/icons/back_arrow/back_arrow.png') as ImageSourcePropType,
+    expand_arrow: require('../assets/icons/expand_arrow/expand_arrow.png') as ImageSourcePropType,
+    star: require('../assets/icons/star/star.png') as ImageSourcePropType,
   },
 
   images:{

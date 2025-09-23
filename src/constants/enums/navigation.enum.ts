@@ -5,5 +5,6 @@ export enum ROUTES {
 
   // Stack Screens
   REGISTRATION = 'Registration',
+  CATEGORIES = 'Categories',
   MAIN_DRAWER = 'MainDrawer',
 }

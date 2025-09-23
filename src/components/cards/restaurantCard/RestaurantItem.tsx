@@ -17,13 +17,26 @@ const MenuItemCard = ({ item, onPress }: MenuItemCardProps) => {
     >
       <View style={styles.textContainer}>
         <AppText textStyles={styles.name}>{item.name}</AppText>
-        <View style={styles.priceRow}>
-          <AppText textStyles={styles.price}>{item.price}</AppText>
-          {item.isPopular && <AppText textStyles={styles.popularTag}> • Popular</AppText>}
-        </View>
-        <AppText textColor={LightColors.Text.DESCRIPTION} textStyles={styles.description} numberOfLines={2}>
+
+        <AppText
+          textColor={LightColors.Text.DESCRIPTION}
+          textStyles={styles.description}
+          numberOfLines={2}
+        >
           {item.description}
         </AppText>
+        <View style={styles.priceRow}>
+          {/* <AppText textStyles={styles.price}>{item.price}</AppText> */}
+          {item.isPopular && (
+            <AppText
+              textColor={Colors.Background.STATUS_CHIP}
+              textStyles={styles.popularTag}
+            >
+              {' '}
+              • Popular
+            </AppText>
+          )}
+        </View>
       </View>
       <Image
         source={item.restaurantImage}
@@ -42,7 +55,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0', // Light separator line
+    borderBottomColor: '#f0f0f0',
   },
   textContainer: {
     flex: 1,
@@ -71,11 +84,10 @@ const styles = StyleSheet.create({
     fontWeight: '400',
   },
   image: {
-    width: 90, 
+    width: 90,
     height: 90,
     borderRadius: 8,
-    ...getShadow(8)
-   
+    ...getShadow(8),
   },
 });
 

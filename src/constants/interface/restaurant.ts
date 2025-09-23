@@ -1,7 +1,7 @@
 import { ImageSourcePropType } from 'react-native';
 
 export interface MenuItemData {
-  restaurantId: string;
+  restaurantId: number;
   name: string;
   price?: string; 
   description: string;
@@ -11,5 +11,5 @@ export interface MenuItemData {
 
 export interface MenuItemCardProps {
   item: MenuItemData;
-  onPress: (restaurantId: string) => void;
+  onPress: (restaurantId: number) => void;
 }
