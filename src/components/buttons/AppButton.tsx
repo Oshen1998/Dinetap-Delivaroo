@@ -48,7 +48,7 @@ const AppButton = ({
   backgroundColor,
   borderColor,
   borderWidth,
-  borderRadius = 8,
+  borderRadius = 5,
   height = 48,
   loading = false,
   iconTintColor,

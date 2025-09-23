@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    minHeight: 48,
+    minHeight: 42,
   },
   content: {
     flexDirection: 'row',

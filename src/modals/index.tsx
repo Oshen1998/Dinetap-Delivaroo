@@ -7,6 +7,7 @@ import { slideFromBottomAnimation } from './modal.utils';
 import { MODAL_STACK } from './modal.constants';
 import NoInternet from './NoInternet';
 import LoadingModal from './loader.modal';
+import TranslationModal from './TranslationModal';
 
 const modalConfig: ModalStackConfig = {
   [MODAL_STACK.NETWORK_MODAL]: {
@@ -16,6 +17,10 @@ const modalConfig: ModalStackConfig = {
   [MODAL_STACK.LOADING]: {
     modal: LoadingModal,
     backBehavior: 'none',
+  },
+  [MODAL_STACK.TRANSLATIONS]: {
+    modal: TranslationModal,
+    backBehavior: 'pop',
   },
 };
 

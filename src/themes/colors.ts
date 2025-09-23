@@ -20,6 +20,7 @@ export const LightColors: IColor = {
     TAB_BAR: '#FFFFFF',
     REDUCED_THEME: 'rgba(92,208,130,0.1)',
     SUB_SECTION: '#F6F6F6',
+    OFF_WHITE: '#FAF9F6',
     TEXT_INPUT: '#FFFFFF',
     BACK_BUTTON: '#F4F4F4',
     HELPER: '#E2E2E2',

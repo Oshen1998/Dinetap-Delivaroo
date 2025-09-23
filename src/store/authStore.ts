@@ -14,6 +14,7 @@ export interface AuthState {
   user: User | null;
   setTokens: (tokens: Tokens) => Promise<void>;
   clearTokens: () => Promise<void>;
+  clearUser: () => Promise<void>;
   loadTokens: () => Promise<void>;
   loginUser: () => Promise<Tokens>;
   setUserDetails: (data: User) => Promise<void>;
@@ -39,6 +40,12 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         accessToken: '',
         refreshToken: '',
       },
+    });
+  },
+
+  clearUser: async () => {
+    set({
+      user: null,
     });
   },
 

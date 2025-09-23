@@ -13,6 +13,8 @@ import { ROUTES } from '../constants/enums/navigation.enum';
 import { StyleSheet } from 'react-native';
 import HomeScreen from '../features/home/screens/HomeScreen';
 import { screenWidth } from '../utils/screens.util';
+import { MODAL_STACK } from '../modals/modal.constants';
+import { useModal } from 'react-native-modalfy';
 
 export type DrawerParamList = {
   [ROUTES.HOME]: undefined;
@@ -20,7 +22,6 @@ export type DrawerParamList = {
 };
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
-
 
 export const MainHeader = (
   { navigation }: DrawerHeaderProps,
@@ -41,6 +42,11 @@ const InitDrawerContent = (props: DrawerContentComponentProps) => (
 
 const RootNavigation = () => {
   const { Colors } = useThemeStore();
+  const {openModal} = useModal();
+
+  const onHandleTranslations = () => {
+    openModal(MODAL_STACK.TRANSLATIONS);
+  };
 
   return (
     <Drawer.Navigator
@@ -48,11 +54,12 @@ const RootNavigation = () => {
       drawerContent={props => InitDrawerContent(props)}
       screenOptions={{
         drawerStyle: {
-          width: screenWidth
+          width: screenWidth,
         },
         drawerItemStyle: {
           ...styles.drawerItem,
         },
+
         drawerType: 'slide',
         drawerPosition: 'right',
         header: navigation => {
@@ -63,6 +70,15 @@ const RootNavigation = () => {
                     key: 'HOME',
                     icon: images.icons.home,
                     onPress: () => navigation.navigation.navigate(ROUTES.HOME),
+                  },
+                ]
+              : []),
+            ...(navigation.route.name === ROUTES.HOME
+              ? [
+                  {
+                    key: 'TRANSLATION',
+                    icon: images.icons.translate,
+                    onPress: onHandleTranslations,
                   },
                 ]
               : []),
@@ -86,7 +102,7 @@ const RootNavigation = () => {
 
 const styles = StyleSheet.create({
   drawerItem: {
-    borderRadius: 10,
+    borderRadius: 5,
     marginHorizontal: 10,
     marginVertical: 5,
   },

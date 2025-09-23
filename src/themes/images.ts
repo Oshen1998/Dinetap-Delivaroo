@@ -18,6 +18,8 @@ export const images = {
     star: require('../assets/icons/star/star.png') as ImageSourcePropType,
     close: require('../assets/icons/close/close.png') as ImageSourcePropType,
     bike: require('../assets/icons/bike/bike.png') as ImageSourcePropType,
+    translate: require('../assets/icons/translate/translate.png') as ImageSourcePropType,
+    swaps: require('../assets/icons/swap/swap.png') as ImageSourcePropType,
   },
 
   images:{

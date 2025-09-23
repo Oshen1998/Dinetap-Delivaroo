@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     height: 20,
     width: 20,
   },
-  iconWidth: { width: '40%' },
+  iconWidth: { width: '32%' },
 });
 
 export default Header;

@@ -14,13 +14,14 @@ import { images } from '../themes/images';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import UserProfile from './UserProfile'; // Import the new component
 import { useAuthStore } from '../store/authStore';
-
+import AppButton from '../components/buttons/AppButton';
+import { FONT_SIZES } from '../constants/fonts.constants';
 
 type CustomDrawerProps = DrawerContentComponentProps;
 
 const DrawerContent: React.FC<CustomDrawerProps> = props => {
   const { Colors, switchTheme, isDarkMode } = useThemeStore();
-  const { user } = useAuthStore(); 
+  const { user, clearUser } = useAuthStore();
 
   const insets = useSafeAreaInsets();
 
@@ -60,6 +61,20 @@ const DrawerContent: React.FC<CustomDrawerProps> = props => {
         />
       )}
 
+      {user && user.user && (
+        <AppButton
+          text="Sign out"
+          textStyles={styles.socialButton}
+          textColor={Colors.Text.ACCENT}
+          height={55}
+          style={{
+            backgroundColor: LightColors.Button.ERROR,
+            ...styles.button,
+          }}
+          onPress={clearUser}
+        />
+      )}
+
       <View style={styles.toggleContainer}>
         <ToggleButton
           text="Change Theme"
@@ -96,6 +111,15 @@ const styles = StyleSheet.create({
     width: '92%',
     alignSelf: 'center',
     borderRadius: 8,
+  },
+  socialButton: {
+    fontWeight: '700',
+    fontSize: FONT_SIZES.HeroTitle,
+  },
+  button: {
+    width: '90%',
+    marginVertical: 10,
+    alignSelf: 'center',
   },
 });
 
