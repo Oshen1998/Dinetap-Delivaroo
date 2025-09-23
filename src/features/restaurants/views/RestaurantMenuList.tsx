@@ -23,7 +23,7 @@ const RestaurantMenuList = () => {
     navigate(ROUTES.CATEGORIES as never);
     setTimeout(() => {
       closeModal(MODAL_STACK.LOADING);
-    }, 3000);
+    }, 1000);
   };
 
   const renderItem = ({ item }: { item: MenuItemData }) => (

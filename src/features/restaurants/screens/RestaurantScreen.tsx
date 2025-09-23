@@ -5,6 +5,7 @@ import { useThemeStore } from '../../../store/themeStore';
 import AppText from '../../../components/texts/AppText';
 import { FONT_FAMILIES, FONT_SIZES } from '../../../constants/fonts.constants';
 import RestaurantMenuList from '../views/RestaurantMenuList';
+import { getShadow } from '../../../utils/shadow.util';
 
 const RestaurantScreen = () => {
   const { Colors } = useThemeStore();
@@ -18,7 +19,7 @@ const RestaurantScreen = () => {
           fontFamily={FONT_FAMILIES.IBMPlexSans.Medium}
           fontSize={FONT_SIZES.Title}
         >
-          Explore today's and choose your perfect meal.
+        Our Favorite Local Restaurants
         </AppText>
       </View>
       <RestaurantMenuList />
@@ -32,7 +33,9 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     paddingHorizontal: 15,
-    marginVertical: 10,
+    paddingBottom: 5,
+    marginVertical: 12,
+    ...getShadow(5)
   },
 });
 

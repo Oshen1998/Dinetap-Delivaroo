@@ -16,6 +16,8 @@ export const images = {
     arrow_back: require('../assets/icons/back_arrow/back_arrow.png') as ImageSourcePropType,
     expand_arrow: require('../assets/icons/expand_arrow/expand_arrow.png') as ImageSourcePropType,
     star: require('../assets/icons/star/star.png') as ImageSourcePropType,
+    close: require('../assets/icons/close/close.png') as ImageSourcePropType,
+    bike: require('../assets/icons/bike/bike.png') as ImageSourcePropType,
   },
 
   images:{

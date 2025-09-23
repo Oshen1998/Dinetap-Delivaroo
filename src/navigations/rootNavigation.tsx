@@ -4,7 +4,6 @@ import {
   DrawerContentComponentProps,
   DrawerHeaderProps,
 } from '@react-navigation/drawer';
-import HomeScreen from '../features/home/screens/HomeScreen';
 import Header, { HeaderAction } from './Header';
 import { images } from '../themes/images';
 import DrawerContent from './Drawer';
@@ -12,6 +11,8 @@ import { useThemeStore } from '../store/themeStore';
 import RestaurantScreen from '../features/restaurants/screens/RestaurantScreen';
 import { ROUTES } from '../constants/enums/navigation.enum';
 import { StyleSheet } from 'react-native';
+import HomeScreen from '../features/home/screens/HomeScreen';
+import { screenWidth } from '../utils/screens.util';
 
 export type DrawerParamList = {
   [ROUTES.HOME]: undefined;
@@ -19,6 +20,7 @@ export type DrawerParamList = {
 };
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
+
 
 export const MainHeader = (
   { navigation }: DrawerHeaderProps,
@@ -28,7 +30,7 @@ export const MainHeader = (
     <Header
       logoSource={images.logos.appLogo}
       actions={actions}
-      onLogoPress={() => navigation.navigate('Home')}
+      onLogoPress={() => navigation.navigate(ROUTES.HOME)}
     />
   );
 };
@@ -45,16 +47,28 @@ const RootNavigation = () => {
       initialRouteName={ROUTES.HOME}
       drawerContent={props => InitDrawerContent(props)}
       screenOptions={{
+        drawerStyle: {
+          width: screenWidth
+        },
         drawerItemStyle: {
-          ...styles.drawerStyles,
+          ...styles.drawerItem,
         },
         drawerType: 'slide',
         drawerPosition: 'right',
         header: navigation => {
           const actions = [
+            ...(navigation.route.name !== ROUTES.HOME
+              ? [
+                  {
+                    key: 'HOME',
+                    icon: images.icons.home,
+                    onPress: () => navigation.navigation.navigate(ROUTES.HOME),
+                  },
+                ]
+              : []),
             {
               key: 'SIGNUP',
-              icon: images.icons.drawer,
+              icon: images.icons.person,
               onPress: () => navigation.navigation.toggleDrawer(),
             },
           ];
@@ -71,7 +85,7 @@ const RootNavigation = () => {
 };
 
 const styles = StyleSheet.create({
-  drawerStyles: {
+  drawerItem: {
     borderRadius: 10,
     marginHorizontal: 10,
     marginVertical: 5,

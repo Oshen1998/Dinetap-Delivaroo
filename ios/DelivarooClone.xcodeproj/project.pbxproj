@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		07FDC0A1D5C74CAF9FB76EBF /* IBMPlexSans_Condensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 162F259004174C4C982C9733 /* IBMPlexSans_Condensed-Bold.ttf */; };
 		0AF08B42FBBD480284958AAC /* IBMPlexSans_SemiCondensed-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2DEC8F95D747CD84D8FD0F /* IBMPlexSans_SemiCondensed-Thin.ttf */; };
-		0C80B921A6F3F58F76C31292 /* libPods-DelivarooClone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-DelivarooClone.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		205311EF8274485ABDC8C1CD /* IBMPlexSans_Condensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4F6650861C0412AAFE47A4F /* IBMPlexSans_Condensed-Regular.ttf */; };
 		22D05E88BE0545BA90E4E552 /* IBMPlexSans_Condensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36EFD7A0693F4C38A45418C1 /* IBMPlexSans_Condensed-BoldItalic.ttf */; };
@@ -40,6 +39,7 @@
 		9E246D7320DE4AEBB78EAE28 /* IBMPlexSans_SemiCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3CFCFC52377F4BF8AAC1D263 /* IBMPlexSans_SemiCondensed-Regular.ttf */; };
 		A51A66CFF8A6430DA7AE104B /* IBMPlexSans_SemiCondensed-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 555270241BB2453DA93AF910 /* IBMPlexSans_SemiCondensed-SemiBold.ttf */; };
 		A5CC766DEE6A44508F8D2184 /* IBMPlexSans_Condensed-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 211565FC0687438CA2CC6F31 /* IBMPlexSans_Condensed-ExtraLight.ttf */; };
+		A6381AFABD1A03E6CDD763FF /* libPods-DelivarooClone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB71C02B438A02BCA0D9B3F /* libPods-DelivarooClone.a */; };
 		A68F12F5D7284B818F22978B /* IBMPlexSans_SemiCondensed-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BF4609DA66D4A3AB65B00F8 /* IBMPlexSans_SemiCondensed-SemiBoldItalic.ttf */; };
 		AD627C9276D3459980E173BA /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAAB0F49AFAA4A90BD4A3DD9 /* IBMPlexSans-Bold.ttf */; };
 		BEE48A749C3944BD8BCF1336 /* IBMPlexSans_SemiCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2347DCE67DE54BAF8FBE7424 /* IBMPlexSans_SemiCondensed-LightItalic.ttf */; };
@@ -72,10 +72,10 @@
 		2869364ACA4144CC83E9225E /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Medium.ttf"; path = "../src/assets/fonts/IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
 		2AE0D16386B64A18B92C8E1E /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = DelivarooClone/Colors.xcassets; sourceTree = "<group>"; };
 		2BF4609DA66D4A3AB65B00F8 /* IBMPlexSans_SemiCondensed-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans_SemiCondensed-SemiBoldItalic.ttf"; path = "../src/assets/fonts/IBMPlexSans_SemiCondensed-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		2CB71C02B438A02BCA0D9B3F /* libPods-DelivarooClone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DelivarooClone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB482E203C14599A17BE5F1 /* IBMPlexSans_SemiCondensed-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans_SemiCondensed-ExtraLight.ttf"; path = "../src/assets/fonts/IBMPlexSans_SemiCondensed-ExtraLight.ttf"; sourceTree = "<group>"; };
 		2F2DEC8F95D747CD84D8FD0F /* IBMPlexSans_SemiCondensed-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans_SemiCondensed-Thin.ttf"; path = "../src/assets/fonts/IBMPlexSans_SemiCondensed-Thin.ttf"; sourceTree = "<group>"; };
 		36EFD7A0693F4C38A45418C1 /* IBMPlexSans_Condensed-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans_Condensed-BoldItalic.ttf"; path = "../src/assets/fonts/IBMPlexSans_Condensed-BoldItalic.ttf"; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-DelivarooClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DelivarooClone.debug.xcconfig"; path = "Target Support Files/Pods-DelivarooClone/Pods-DelivarooClone.debug.xcconfig"; sourceTree = "<group>"; };
 		3CFCFC52377F4BF8AAC1D263 /* IBMPlexSans_SemiCondensed-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans_SemiCondensed-Regular.ttf"; path = "../src/assets/fonts/IBMPlexSans_SemiCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		4043747F480A4A69A5B18BFC /* IBMPlexSans_SemiCondensed-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans_SemiCondensed-MediumItalic.ttf"; path = "../src/assets/fonts/IBMPlexSans_SemiCondensed-MediumItalic.ttf"; sourceTree = "<group>"; };
 		408D0FEAA7D74B5C863DA95A /* IBMPlexSans-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-MediumItalic.ttf"; path = "../src/assets/fonts/IBMPlexSans-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -85,12 +85,11 @@
 		5469FD48B8BD4A499E2D637D /* IBMPlexSans-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-ThinItalic.ttf"; path = "../src/assets/fonts/IBMPlexSans-ThinItalic.ttf"; sourceTree = "<group>"; };
 		555270241BB2453DA93AF910 /* IBMPlexSans_SemiCondensed-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans_SemiCondensed-SemiBold.ttf"; path = "../src/assets/fonts/IBMPlexSans_SemiCondensed-SemiBold.ttf"; sourceTree = "<group>"; };
 		55B08AD94E5548D9A7A03544 /* IBMPlexSans_SemiCondensed-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans_SemiCondensed-Medium.ttf"; path = "../src/assets/fonts/IBMPlexSans_SemiCondensed-Medium.ttf"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-DelivarooClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DelivarooClone.release.xcconfig"; path = "Target Support Files/Pods-DelivarooClone/Pods-DelivarooClone.release.xcconfig"; sourceTree = "<group>"; };
 		5A0A21F2654F40D8AD264689 /* IBMPlexSans_SemiCondensed-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans_SemiCondensed-Italic.ttf"; path = "../src/assets/fonts/IBMPlexSans_SemiCondensed-Italic.ttf"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-DelivarooClone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DelivarooClone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B41A4234854842847DC1BE /* IBMPlexSans_Condensed-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans_Condensed-Italic.ttf"; path = "../src/assets/fonts/IBMPlexSans_Condensed-Italic.ttf"; sourceTree = "<group>"; };
 		68C8D852183048288D997D1E /* IBMPlexSans-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Thin.ttf"; path = "../src/assets/fonts/IBMPlexSans-Thin.ttf"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = DelivarooClone/AppDelegate.swift; sourceTree = "<group>"; };
+		7A48265152D3C91CC2322FE1 /* Pods-DelivarooClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DelivarooClone.release.xcconfig"; path = "Target Support Files/Pods-DelivarooClone/Pods-DelivarooClone.release.xcconfig"; sourceTree = "<group>"; };
 		7EF08119F25A42C6B335B48D /* IBMPlexSans_SemiCondensed-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans_SemiCondensed-ExtraLightItalic.ttf"; path = "../src/assets/fonts/IBMPlexSans_SemiCondensed-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DelivarooClone/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88295F08A59C46A09EFBE85B /* IBMPlexSans_Condensed-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans_Condensed-ExtraLightItalic.ttf"; path = "../src/assets/fonts/IBMPlexSans_Condensed-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -111,6 +110,7 @@
 		D79F2E56EE13498CB049D15A /* IBMPlexSans-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-LightItalic.ttf"; path = "../src/assets/fonts/IBMPlexSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		D7F632BDA54F4BEFA1807828 /* IBMPlexSans_Condensed-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans_Condensed-SemiBold.ttf"; path = "../src/assets/fonts/IBMPlexSans_Condensed-SemiBold.ttf"; sourceTree = "<group>"; };
 		DE5F8C5E50ED4E3C9AF9372F /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-SemiBold.ttf"; path = "../src/assets/fonts/IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		DFF35E4F252CCAF8ECFE111E /* Pods-DelivarooClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DelivarooClone.debug.xcconfig"; path = "Target Support Files/Pods-DelivarooClone/Pods-DelivarooClone.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FD02A353152042759029D1AC /* IBMPlexSans-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-BoldItalic.ttf"; path = "../src/assets/fonts/IBMPlexSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,7 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-DelivarooClone.a in Frameworks */,
+				A6381AFABD1A03E6CDD763FF /* libPods-DelivarooClone.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-DelivarooClone.a */,
+				2CB71C02B438A02BCA0D9B3F /* libPods-DelivarooClone.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -233,8 +233,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-DelivarooClone.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-DelivarooClone.release.xcconfig */,
+				DFF35E4F252CCAF8ECFE111E /* Pods-DelivarooClone.debug.xcconfig */,
+				7A48265152D3C91CC2322FE1 /* Pods-DelivarooClone.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -246,13 +246,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DelivarooClone" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				CA187F55465549683FE11B02 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				4E5FD33803CFF3E12F8A352F /* [CP] Embed Pods Frameworks */,
+				6EE4007E8D025B5A19320B3B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -368,7 +368,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+		4E5FD33803CFF3E12F8A352F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -385,7 +385,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DelivarooClone/Pods-DelivarooClone-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		6EE4007E8D025B5A19320B3B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DelivarooClone/Pods-DelivarooClone-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DelivarooClone/Pods-DelivarooClone-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DelivarooClone/Pods-DelivarooClone-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA187F55465549683FE11B02 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -407,23 +424,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DelivarooClone/Pods-DelivarooClone-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DelivarooClone/Pods-DelivarooClone-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DelivarooClone/Pods-DelivarooClone-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -440,7 +440,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-DelivarooClone.debug.xcconfig */;
+			baseConfigurationReference = DFF35E4F252CCAF8ECFE111E /* Pods-DelivarooClone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -468,7 +468,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-DelivarooClone.release.xcconfig */;
+			baseConfigurationReference = 7A48265152D3C91CC2322FE1 /* Pods-DelivarooClone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

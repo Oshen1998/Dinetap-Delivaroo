@@ -3,4 +3,5 @@ declare module '@env' {
   export const API_KEY: string;
   export const APP_NAME: string;
   export const DEBUG_MODE: string;
+  export const CLIENT_ID: string;
 }

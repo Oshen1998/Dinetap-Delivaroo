@@ -1,5 +1,5 @@
-import { ScrollView, StyleSheet, View } from 'react-native';
-import React, { useCallback } from 'react';
+import { Alert, ScrollView, StyleSheet, View } from 'react-native';
+import React, { useCallback, useEffect } from 'react';
 import { useThemeStore } from '../../../store/themeStore';
 import AppButton from '../../../components/buttons/AppButton';
 import { LightColors } from '../../../themes/colors';
@@ -8,9 +8,41 @@ import { images } from '../../../themes/images';
 import AppText from '../../../components/texts/AppText';
 import TextWithSeparator from '../../../components/horizontalLine/TextWithSeparator';
 import AppPressableText from '../../../components/texts/AppPressableText';
+import { GoogleSignInService } from '../../../services/googleSigninService';
+import { useAuthStore } from '../../../store/authStore';
 
 const AuthScreen = () => {
   const { Colors } = useThemeStore();
+  const { setUserDetails } = useAuthStore();
+
+
+  const checkCurrentUser = useCallback(async () => {
+    try {
+      const currentUser = await GoogleSignInService.getCurrentUser();
+      if (currentUser.user) setUserDetails(currentUser.user);
+    } catch (error) {
+      console.log('No current user');
+    }
+  }, [setUserDetails]);
+
+  useEffect(() => {
+    GoogleSignInService.configure();
+    checkCurrentUser();
+  }, [checkCurrentUser]);
+
+  const handleSignIn = async () => {
+    try {
+      const userInfo = await GoogleSignInService.signIn();
+      if (userInfo) {
+        setUserDetails(userInfo);
+        Alert.alert('Success', `Welcome ${userInfo.user.name}!`);
+      }
+    } catch (error) {
+      Alert.alert('Error', 'Failed to sign in with Google');
+    } finally {
+      // TODO
+    }
+  };
 
   const onPressGoogle = useCallback(() => {}, []);
 
@@ -59,7 +91,7 @@ const AuthScreen = () => {
               backgroundColor: LightColors.Button.ACCENT,
               ...styles.googleButton,
             }}
-            onPress={onPressGoogle}
+            onPress={handleSignIn}
           />
           <AppButton
             text="Continue with Apple"
@@ -103,7 +135,7 @@ const AuthScreen = () => {
                 containerStyles={styles.textContentWrapper}
                 textAlign="center"
               >
-                By continuing you agree to our{' '} <AppPressableText text="T&C" />.
+                By continuing you agree to our <AppPressableText text="T&C" />.
                 Please also check out our{' '}
                 <AppPressableText text="Privacy Policy" />. We use your data to
                 offer you a personalized experience and to better understand and

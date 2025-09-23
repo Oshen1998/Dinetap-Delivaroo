@@ -1,6 +1,7 @@
 import EncryptedStorage from 'react-native-encrypted-storage';
 import { create } from 'zustand';
 import { login } from '../services/authApi';
+import { User } from '@react-native-google-signin/google-signin';
 
 export interface Tokens {
   accessToken: string;
@@ -10,10 +11,12 @@ export interface Tokens {
 export interface AuthState {
   loading: boolean;
   tokens: Tokens;
+  user: User | null;
   setTokens: (tokens: Tokens) => Promise<void>;
   clearTokens: () => Promise<void>;
   loadTokens: () => Promise<void>;
   loginUser: () => Promise<Tokens>;
+  setUserDetails: (data: User) => Promise<void>;
 }
 
 export const useAuthStore = create<AuthState>((set, get) => ({
@@ -22,6 +25,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     refreshToken: '',
   },
   loading: false,
+  user: null,
 
   setTokens: async (tokens: Tokens) => {
     await EncryptedStorage.setItem('authTokens', JSON.stringify(tokens));
@@ -43,6 +47,12 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     if (stored) {
       set({ tokens: JSON.parse(stored) });
     }
+  },
+
+  setUserDetails: async (data: User) => {
+    set({
+      user: data,
+    });
   },
 
   loginUser: async (): Promise<Tokens> => {

@@ -73,7 +73,6 @@ const AppButton = ({
     <TouchableOpacity
       style={buttonStyle}
       onPress={onPress}
-      disabled={disabled || loading}
       activeOpacity={0.8}
       {...props}
     >

@@ -30,7 +30,7 @@ const SignUpOrSignIn = () => {
 
     setTimeout(()=> {
       closeModal(MODAL_STACK.LOADING);
-    }, 3000)
+    }, 1000)
   };
 
   return (
@@ -40,6 +40,7 @@ const SignUpOrSignIn = () => {
         iconTintColor={Colors.Icon.ACCENT}
         textStyles={styles.socialButton}
         textColor={Colors.Text.ACCENT}
+        height={55}
         style={{
           backgroundColor: LightColors.Background.THEME,
           ...styles.button,
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     fontSize: FONT_SIZES.HeroTitle,
   },
   button: {
-    width: '90%',
+    width: '95%',
     marginVertical: 10,
   },
 });

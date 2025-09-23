@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   },
   appInputDeco: {
     borderRadius: 30,
-    width: '60%',
+    width: '63%',
     paddingHorizontal: 10,
   },
   rightBtn: {
