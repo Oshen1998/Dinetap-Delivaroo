@@ -10,25 +10,17 @@ import TextWithSeparator from '../../../components/horizontalLine/TextWithSepara
 import AppPressableText from '../../../components/texts/AppPressableText';
 import { GoogleSignInService } from '../../../services/googleSigninService';
 import { useAuthStore } from '../../../store/authStore';
+import { useNavigation } from '@react-navigation/native';
 
 const AuthScreen = () => {
   const { Colors } = useThemeStore();
   const { setUserDetails } = useAuthStore();
+  const { goBack } = useNavigation();
 
-
-  const checkCurrentUser = useCallback(async () => {
-    try {
-      const currentUser = await GoogleSignInService.getCurrentUser();
-      if (currentUser.user) setUserDetails(currentUser.user);
-    } catch (error) {
-      console.log('No current user');
-    }
-  }, [setUserDetails]);
 
   useEffect(() => {
     GoogleSignInService.configure();
-    checkCurrentUser();
-  }, [checkCurrentUser]);
+  }, []);
 
   const handleSignIn = async () => {
     try {
@@ -40,7 +32,7 @@ const AuthScreen = () => {
     } catch (error) {
       Alert.alert('Error', 'Failed to sign in with Google');
     } finally {
-      // TODO
+       goBack();
     }
   };
 

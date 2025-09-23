@@ -10,11 +10,12 @@ export interface Tokens {
 
 export interface AuthState {
   loading: boolean;
+  isGoogleSigIn: boolean;
   tokens: Tokens;
   user: User | null;
   setTokens: (tokens: Tokens) => Promise<void>;
   clearTokens: () => Promise<void>;
-  clearUser: () => Promise<void>;
+  clearUser: () => void;
   loadTokens: () => Promise<void>;
   loginUser: () => Promise<Tokens>;
   setUserDetails: (data: User) => Promise<void>;
@@ -26,6 +27,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     refreshToken: '',
   },
   loading: false,
+  isGoogleSigIn: false,
   user: null,
 
   setTokens: async (tokens: Tokens) => {
@@ -43,9 +45,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     });
   },
 
-  clearUser: async () => {
+  clearUser: () => {
     set({
       user: null,
+      isGoogleSigIn: false,
     });
   },
 
@@ -59,6 +62,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   setUserDetails: async (data: User) => {
     set({
       user: data,
+      isGoogleSigIn: true,
     });
   },
 

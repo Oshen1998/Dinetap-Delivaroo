@@ -10,8 +10,6 @@ export const useAppStore = create<AppState>((set) => ({
   language: 'en',
 
   setLanguage: async (languageType: string) => {
-    console.log(languageType, 'languageType');
-    
     set({ language: languageType });
     strings.setLanguage(languageType);
   },

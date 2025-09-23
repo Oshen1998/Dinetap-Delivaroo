@@ -21,9 +21,12 @@ type CustomDrawerProps = DrawerContentComponentProps;
 
 const DrawerContent: React.FC<CustomDrawerProps> = props => {
   const { Colors, switchTheme, isDarkMode } = useThemeStore();
-  const { user, clearUser } = useAuthStore();
+  const { user, clearUser, isGoogleSigIn } = useAuthStore();
 
   const insets = useSafeAreaInsets();
+
+  console.log(user, 'user');
+  
 
   return (
     <View
@@ -47,9 +50,11 @@ const DrawerContent: React.FC<CustomDrawerProps> = props => {
       </View>
 
       <DrawerContentScrollView>
-        <View style={styles.buttonContainer}>
-          <SignUpOrSignIn />
-        </View>
+        {!user && (
+          <View style={styles.buttonContainer}>
+            <SignUpOrSignIn />
+          </View>
+        )}
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
 
@@ -61,7 +66,7 @@ const DrawerContent: React.FC<CustomDrawerProps> = props => {
         />
       )}
 
-      {user && user.user && (
+      {user && user.user && isGoogleSigIn ? (
         <AppButton
           text="Sign out"
           textStyles={styles.socialButton}
@@ -71,8 +76,10 @@ const DrawerContent: React.FC<CustomDrawerProps> = props => {
             backgroundColor: LightColors.Button.ERROR,
             ...styles.button,
           }}
-          onPress={clearUser}
+          onPress={() => clearUser()}
         />
+      ) : (
+        <View />
       )}
 
       <View style={styles.toggleContainer}>

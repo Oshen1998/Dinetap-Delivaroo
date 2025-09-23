@@ -1,106 +1,118 @@
-import React from 'react';
-import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import React, { useCallback } from 'react';
+import { View, TouchableOpacity, StyleSheet, Image, ImageSourcePropType } from 'react-native';
 import AppText from '../../texts/AppText';
 import { useThemeStore } from '../../../store/themeStore';
 import { FONT_FAMILIES, FONT_SIZES } from '../../../constants/fonts.constants';
 import { getShadow } from '../../../utils/shadow.util';
-import { images } from '../../../themes/images';
 import { LightColors } from '../../../themes/colors';
+import { images } from '../../../themes/images';
 
 export interface DishItemProps {
+  id: number;
   name: string;
   price: string;
+  image: ImageSourcePropType;
   currency: string;
   tags?: string;
   calories?: string;
   description?: string;
+  onPressItem: (id: number) => void;
 }
 
 export const DishItem = ({
+  id,
   name,
   price,
   currency,
+  image,
+  onPressItem,
   tags,
   calories,
   description,
 }: DishItemProps) => {
   const { Colors } = useThemeStore();
 
+  const handleItemPress = useCallback(
+    (selectedId: number) => {
+      onPressItem?.(selectedId);
+    },
+    [onPressItem],
+  );
+
+
   return (
     <View
-      style={[styles.container, { backgroundColor: Colors.Background.PRIMARY }]}
+      style={[{ backgroundColor: Colors.Background.PRIMARY }]}
     >
-      <View style={styles.textContainer}>
-        <AppText
-          fontFamily={FONT_FAMILIES.IBMPlexSans.SemiBold}
-          fontSize={FONT_SIZES.SmallTitle}
-          textColor={Colors.Text.PRIMARY}
-          textStyles={styles.nameText}
-        >
-          {name}
-        </AppText>
-
-        <AppText
-          fontFamily={FONT_FAMILIES.IBMPlexSans.Regular}
-          ellipsizeMode="tail"
-          numberOfLines={2}
-          textColor={Colors.Text.DESCRIPTION}
-          textStyles={styles.descriptionText}
-        >
-          {description}
-        </AppText>
-
-        <AppText
-          fontFamily={FONT_FAMILIES.IBMPlexSans.Regular}
-          fontSize={FONT_SIZES.Body}
-          textColor={Colors.Text.DESCRIPTION}
-          textStyles={styles.caloriesText}
-        >
-          {calories}
-        </AppText>
-
-        <AppText
-          fontFamily={FONT_FAMILIES.IBMPlexSans.SemiBold}
-          fontSize={FONT_SIZES.Body}
-          textColor={Colors.Text.DESCRIPTION}
-          textStyles={styles.priceText}
-        >
-          {currency} {price}{' '}
-          {tags && (
-            <>
-              <AppText
-                textColor={Colors.Text.LIGHT_AMOUNT}
-                textStyles={styles.dots}
-              >
-                •
-              </AppText>{' '}
-              <AppText
-                fontFamily={FONT_FAMILIES.IBMPlexSans.SemiBold}
-                textColor={Colors.Text.LIGHT_AMOUNT}
-                textStyles={styles.tagsText}
-              >
-                {tags}
-              </AppText>
-            </>
-          )}
-        </AppText>
-      </View>
-
-      <View style={styles.imageWrapper}>
-        <Image style={styles.dishImage} source={images.images.foods.food1} />
-        <TouchableOpacity
-          style={[styles.addButton, { backgroundColor: Colors.Button.ACCENT }]}
-        >
+      <TouchableOpacity style={styles.container} onPress={() => handleItemPress(id)}>
+        <View style={styles.textContainer}>
           <AppText
             fontFamily={FONT_FAMILIES.IBMPlexSans.SemiBold}
-            fontSize={FONT_SIZES.Title}
-            textColor={Colors.Button.PRIMARY}
-            textStyles={styles.plusSign}
+            fontSize={FONT_SIZES.SmallTitle}
+            textColor={Colors.Text.PRIMARY}
+            textStyles={styles.nameText}
           >
-            +
+            {name}
           </AppText>
-        </TouchableOpacity>
-      </View>
+
+          <AppText
+            fontFamily={FONT_FAMILIES.IBMPlexSans.Regular}
+            ellipsizeMode="tail"
+            numberOfLines={2}
+            textColor={Colors.Text.DESCRIPTION}
+            textStyles={styles.descriptionText}
+          >
+            {description}
+          </AppText>
+
+          <AppText
+            fontFamily={FONT_FAMILIES.IBMPlexSans.Regular}
+            fontSize={FONT_SIZES.Body}
+            textColor={Colors.Text.DESCRIPTION}
+            textStyles={styles.caloriesText}
+          >
+            {calories}
+          </AppText>
+
+          <AppText
+            fontFamily={FONT_FAMILIES.IBMPlexSans.SemiBold}
+            fontSize={FONT_SIZES.Body}
+            textColor={Colors.Text.DESCRIPTION}
+            textStyles={styles.priceText}
+          >
+            {currency} {price}{' '}
+            {tags && (
+              <>
+                <AppText
+                  textColor={Colors.Text.LIGHT_AMOUNT}
+                  textStyles={styles.dots}
+                >
+                  •
+                </AppText>{' '}
+                <AppText
+                  fontFamily={FONT_FAMILIES.IBMPlexSans.SemiBold}
+                  textColor={Colors.Text.LIGHT_AMOUNT}
+                  textStyles={styles.tagsText}
+                >
+                  {tags}
+                </AppText>
+              </>
+            )}
+          </AppText>
+        </View>
+
+        <View style={styles.imageWrapper}>
+          <Image style={styles.dishImage} source={image} />
+          <TouchableOpacity
+            style={[
+              styles.addButton,
+              { backgroundColor: Colors.Background.PRIMARY },
+            ]}
+          >
+            <Image tintColor={LightColors.Button.PRIMARY}  source={images.icons.add} />
+          </TouchableOpacity>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };

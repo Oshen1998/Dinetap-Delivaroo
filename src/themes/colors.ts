@@ -136,6 +136,7 @@ export const DarkColors: IColor = {
   LOGO: '#FFFFFF',
   Background: {
     ...LightColors.Background,
+    OFF_WHITE: '#2F303F',
     PRIMARY: '#2F303F',
     ICON_BUTTON: '#3A3B4A',
     TAB_BAR: '#2F303F',
@@ -182,4 +183,3 @@ export const DarkColors: IColor = {
     PRIMARY: '#515A5C',
   },
 };
-
