@@ -1,3 +1,4 @@
+import i18n from '../i18n';
 import { images } from '../themes/images';
 import { PartnerCardData } from './interface/partnerCard';
 import { MenuItemData } from './interface/restaurant';
@@ -7,26 +8,26 @@ export const DUMMY_DATA: PartnerCardData[] = [
   {
     id: '1',
     image: images.images.foods.food1,
-    title: 'Partner with us',
+    title: i18n.generic.partnership.partner.title,
     description:
-      'Join Deliveroo and reach more customers than ever. We handle delivery, so you can focus on the food.',
-    actionTitle: 'Get started',
+      i18n.generic.partnership.partner.description,
+    actionTitle: i18n.generic.partnership.partner.actionTitle,
   },
   {
     id: '2',
     image: images.images.foods.food2,
-    title: 'Become a Rider',
+    title: i18n.generic.partnership.rider.title,
     description:
-      'Earn great money on your own schedule. Be your own boss and deliver food to hungry customers.',
-    actionTitle: 'Apply now',
+      i18n.generic.partnership.rider.description,
+    actionTitle: i18n.generic.partnership.rider.actionTitle,
   },
   {
     id: '3',
     image: images.images.foods.food5,
-    title: 'Deliveroo for Work',
+    title: i18n.generic.partnership.work.title,
     description:
-      "From team lunches to meal allowances for your late night workers, we've got your workplace meals covered.",
-    actionTitle: 'Get started',
+      i18n.generic.partnership.work.description,
+    actionTitle:  i18n.generic.partnership.work.actionTitle,
   },
 ];
 

@@ -8,6 +8,8 @@ import Header, { HeaderAction } from './Header';
 import { images } from '../themes/images';
 import { ROUTES } from '../constants/enums/navigation.enum';
 import RestaurantCategoryScreen from '../features/restaurants/screens/RestaurantCategoryScreen';
+import { useDefaultHooks } from '../hooks/useLanguage';
+
 
 export type StackParamsList = {
   [ROUTES.MAIN_DRAWER]: undefined;
@@ -32,6 +34,7 @@ export const MainHeader = (
 };
 
 const AppNavigator = () => {
+  useDefaultHooks();
   return (
     <Stack.Navigator>
       <Stack.Screen

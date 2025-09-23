@@ -15,6 +15,7 @@ import HomeScreen from '../features/home/screens/HomeScreen';
 import { screenWidth } from '../utils/screens.util';
 import { MODAL_STACK } from '../modals/modal.constants';
 import { useModal } from 'react-native-modalfy';
+import { useDefaultHooks } from '../hooks/useLanguage';
 
 export type DrawerParamList = {
   [ROUTES.HOME]: undefined;
@@ -42,11 +43,13 @@ const InitDrawerContent = (props: DrawerContentComponentProps) => (
 
 const RootNavigation = () => {
   const { Colors } = useThemeStore();
-  const {openModal} = useModal();
+  const { openModal } = useModal();
 
   const onHandleTranslations = () => {
     openModal(MODAL_STACK.TRANSLATIONS);
   };
+
+  useDefaultHooks();
 
   return (
     <Drawer.Navigator

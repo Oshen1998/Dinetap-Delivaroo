@@ -6,6 +6,8 @@ import { images } from '../../../themes/images';
 import { LightColors } from '../../../themes/colors';
 import { useThemeStore } from '../../../store/themeStore';
 import { getShadow } from '../../../utils/shadow.util';
+import i18n from '../../../i18n/index';
+import { useDefaultHooks } from '../../../hooks/useLanguage';
 
 type AppSearchProps = {};
 
@@ -17,6 +19,8 @@ const HomeSearch = ({}: AppSearchProps) => {
   const handleText = useCallback(() => {
     changeText(text);
   }, [text]);
+
+  useDefaultHooks();
 
   return (
     <View
@@ -44,7 +48,7 @@ const HomeSearch = ({}: AppSearchProps) => {
             tintColor={Colors.Icon.THEME}
             rightButtonTextColor={LightColors.Text.ACCENT}
             rightButtonTextStyle={styles.rightBtnText}
-            label="Enter a postcode to see what we deliver:"
+            label={i18n.generic.description}
             labelStyle={styles.rightBtnLabel}
             inputWrapperStyle={styles.inputWrapper}
           />
