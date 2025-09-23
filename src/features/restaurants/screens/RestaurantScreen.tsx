@@ -1,9 +1,10 @@
 import { StyleSheet, View } from 'react-native';
 import React from 'react';
-import RestaurantMenuList from '../views/RestaurantMenuList';
+// import RestaurantMenuList from '../views/RestaurantMenuList';
 import { useThemeStore } from '../../../store/themeStore';
 import AppText from '../../../components/texts/AppText';
 import { FONT_FAMILIES, FONT_SIZES } from '../../../constants/fonts.constants';
+import RestaurantMenuList from '../views/RestaurantMenuList';
 
 const RestaurantScreen = () => {
   const { Colors } = useThemeStore();

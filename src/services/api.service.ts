@@ -1,10 +1,10 @@
-import axios, { AxiosError, AxiosResponse, HttpStatusCode } from "axios";
+import axios, { AxiosError, AxiosResponse, HttpStatusCode } from 'axios';
 import createAuthRefreshInterceptor, {
   AxiosAuthRefreshRequestConfig,
-} from "axios-auth-refresh";
-import axiosRetry from "axios-retry";
-import { useAuthStore } from "../store/authStore";
-import { API_URL } from "@env";
+} from 'axios-auth-refresh';
+import axiosRetry from 'axios-retry';
+import { useAuthStore } from '../store/authStore';
+import { API_URL } from '@env';
 
 const RETRY_COUNT = 3;
 
@@ -21,7 +21,7 @@ const successResponseHandler = (response: AxiosResponse) => {
 };
 
 const errorResponseHandler = (error: AxiosError) => {
-  console.error("API Error:", {
+  console.error('API Error:', {
     url: error.config?.url,
     status: error.response?.status,
     data: error.response?.data,
@@ -30,13 +30,14 @@ const errorResponseHandler = (error: AxiosError) => {
   return Promise.reject(error);
 };
 
-API.interceptors.request.use((config) => {
-  const token = useAuthStore.getState().tokens?.access_token;
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+
+API.interceptors.request.use(config => {
+  const tokens = useAuthStore.getState().tokens;
+  if (tokens) {
+    config.headers.Authorization = `Bearer ${tokens.accessToken}`;
   }
-  if (!config.headers["Content-Type"]) {
-    config.headers["Content-Type"] = "application/json";
+  if (!config.headers['Content-Type']) {
+    config.headers['Content-Type'] = 'application/json';
   }
   return config;
 });
@@ -44,15 +45,15 @@ API.interceptors.request.use((config) => {
 const refreshToken = async (failedRequest: { response: AxiosResponse }) => {
   const { tokens, setTokens, clearTokens } = useAuthStore.getState();
   try {
-    if (!tokens?.refresh_token) throw new Error("No refresh token");
+    if (!tokens.refreshToken) throw new Error('No refresh token');
 
     const output = await API.post(
-      "/auth/refresh", 
-      { token: tokens.refresh_token },
+      '/auth/refresh',
+      { token: tokens.refreshToken },
       {
         skipAuthRefresh: true,
         headers: { Authorization: undefined },
-      } as AxiosAuthRefreshRequestConfig
+      } as AxiosAuthRefreshRequestConfig,
     );
 
     await setTokens(output.data);
@@ -82,7 +83,6 @@ const handleErrorConditions = (error: AxiosError) => {
   }
 };
 
-
 API.interceptors.response.use(successResponseHandler, errorResponseHandler);
 
 createAuthRefreshInterceptor(API, refreshToken, {
@@ -93,7 +93,7 @@ createAuthRefreshInterceptor(API, refreshToken, {
 axiosRetry(API, {
   retries: RETRY_COUNT,
   retryCondition: handleErrorConditions,
-  retryDelay: (retryCount) => retryCount * 10000,
+  retryDelay: retryCount => retryCount * 10000,
 });
 
 export default API;

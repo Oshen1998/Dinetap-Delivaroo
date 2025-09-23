@@ -7,10 +7,12 @@ import AuthScreen from '../features/auth/screens/AuthScreen';
 import Header, { HeaderAction } from './Header';
 import { images } from '../themes/images';
 import { ROUTES } from '../constants/enums/navigation.enum';
+import RestaurantCategoryScreen from '../features/restaurants/screens/RestaurantCategoryScreen';
 
 export type StackParamsList = {
   [ROUTES.MAIN_DRAWER]: undefined;
   [ROUTES.REGISTRATION]: undefined;
+  [ROUTES.CATEGORIES]: undefined;
 };
 
 
@@ -41,6 +43,21 @@ const AppNavigator = () => {
       <Stack.Screen
         name={ROUTES.REGISTRATION}
         component={AuthScreen}
+        options={{
+          headerShown: true,
+          header: navigate =>
+            MainHeader(navigate, [
+              {
+                key: 'HOME',
+                icon: images.icons.home,
+                onPress: () => navigate.navigation.navigate(ROUTES.MAIN_DRAWER),
+              },
+            ]),
+        }}
+      />
+      <Stack.Screen
+        name={ROUTES.CATEGORIES}
+        component={RestaurantCategoryScreen}
         options={{
           headerShown: true,
           header: navigate =>

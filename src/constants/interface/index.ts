@@ -14,6 +14,7 @@ export interface IColor {
     LIGHT_DESCRIPTION: string;
     AMOUNT: string;
     LIGHT_AMOUNT: string;
+    AVACADO: string;
     Chip: {
       ACTIVE: string;
       INACTIVE: string;

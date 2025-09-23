@@ -32,7 +32,7 @@ const AppText = ({
   textAlign,
   containerStyles,
   textColor,
-  fontFamily = FONT_FAMILIES.IBMPlexSans.Regular,
+  fontFamily = FONT_FAMILIES.IBMPlexSans.Medium,
   fontSize = FONT_SIZES.Body,
   numberOfLines,
   ellipsizeMode = 'tail',
