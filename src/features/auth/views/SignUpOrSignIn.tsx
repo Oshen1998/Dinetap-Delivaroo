@@ -16,16 +16,16 @@ const SignUpOrSignIn = () => {
   const { openModal, closeModal } = useModal();
 
   /**
-   * This approach is not ideal for a showcase.
+   * This approach is not good, just write for assignment 
    */
-  const { loginUser, user } = useAuthStore();
+  const { loginUser } = useAuthStore();
 
   const onPressSignUp = async () => {
     openModal(MODAL_STACK.LOADING, {
       title: 'Just a moment...',
       description: 'Verifying your details. Thanks for your patience!',
     });
-    const response = await loginUser?.();
+    const response = await loginUser();
     if (response.accessToken) navigate(ROUTES.REGISTRATION as never);
 
     setTimeout(() => {
@@ -35,19 +35,17 @@ const SignUpOrSignIn = () => {
 
   return (
     <>
-      {!user && (
-        <AppButton
-          text="Sign Up or Log In"
-          textStyles={styles.socialButton}
-          textColor={Colors.Text.ACCENT}
-          height={55}
-          style={{
-            backgroundColor: LightColors.Background.THEME,
-            ...styles.button,
-          }}
-          onPress={onPressSignUp}
-        />
-      )}
+      <AppButton
+        text="Sign Up or Log In"
+        textStyles={styles.socialButton}
+        textColor={Colors.Text.ACCENT}
+        height={55}
+        style={{
+          backgroundColor: LightColors.Background.THEME,
+          ...styles.button,
+        }}
+        onPress={onPressSignUp}
+      />
     </>
   );
 };

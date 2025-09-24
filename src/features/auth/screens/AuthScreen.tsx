@@ -10,38 +10,29 @@ import TextWithSeparator from '../../../components/horizontalLine/TextWithSepara
 import AppPressableText from '../../../components/texts/AppPressableText';
 import { GoogleSignInService } from '../../../services/googleSigninService';
 import { useAuthStore } from '../../../store/authStore';
+import { useNavigation } from '@react-navigation/native';
 
 const AuthScreen = () => {
   const { Colors } = useThemeStore();
-  const { setUserDetails } = useAuthStore();
-
-
-  const checkCurrentUser = useCallback(async () => {
-    try {
-      const currentUser = await GoogleSignInService.getCurrentUser();
-      if (currentUser.user) setUserDetails(currentUser.user);
-    } catch (error) {
-      console.log('No current user');
-    }
-  }, [setUserDetails]);
+  const { setUserDetails, setIsSignin } = useAuthStore();
+  const { goBack } = useNavigation();
 
   useEffect(() => {
     GoogleSignInService.configure();
-    checkCurrentUser();
-  }, [checkCurrentUser]);
+  }, []);
 
   const handleSignIn = async () => {
     try {
       const userInfo = await GoogleSignInService.signIn();
-      if (userInfo) {
+      if (userInfo && userInfo.user) {
         setUserDetails(userInfo);
-        Alert.alert('Success', `Welcome ${userInfo.user.name}!`);
+        setIsSignin(true);
+        goBack();
       }
     } catch (error) {
+      setIsSignin(false);
       Alert.alert('Error', 'Failed to sign in with Google');
-    } finally {
-      // TODO
-    }
+    } 
   };
 
   const onPressGoogle = useCallback(() => {}, []);
@@ -70,6 +61,7 @@ const AuthScreen = () => {
             iconTintColor={LightColors.Icon.ACCENT}
             iconStyle={styles.icon}
             isStart={false}
+            fontSize={FONT_SIZES.Caption}
             isNear
             textStyles={styles.socialButton}
             textColor={Colors.Text.ACCENT}
@@ -86,6 +78,7 @@ const AuthScreen = () => {
             isStart={false}
             isNear
             textStyles={styles.socialButton}
+            fontSize={FONT_SIZES.Caption}
             textColor={LightColors.Text.PRIMARY}
             style={{
               backgroundColor: LightColors.Button.ACCENT,
@@ -99,6 +92,7 @@ const AuthScreen = () => {
             iconTintColor={Colors.Icon.ACCENT}
             iconStyle={styles.icon}
             isStart={false}
+            fontSize={FONT_SIZES.Caption}
             isNear
             textStyles={styles.socialButton}
             textColor={Colors.Text.ACCENT}
@@ -122,6 +116,7 @@ const AuthScreen = () => {
                 iconTintColor={Colors.Icon.ACCENT}
                 iconStyle={styles.icon}
                 isStart={false}
+                fontSize={FONT_SIZES.Caption}
                 isNear
                 textStyles={styles.socialButton}
                 textColor={Colors.Text.ACCENT}
@@ -132,8 +127,10 @@ const AuthScreen = () => {
                 onPress={onPressGoogle}
               />
               <AppText
+                fontFamily={FONT_FAMILIES.IBMPlexSans.Regular}
+                fontSize={FONT_SIZES.Body}
                 containerStyles={styles.textContentWrapper}
-                textAlign="center"
+                textAlign="left"
               >
                 By continuing you agree to our <AppPressableText text="T&C" />.
                 Please also check out our{' '}
@@ -169,7 +166,6 @@ const styles = StyleSheet.create({
   },
   socialButton: {
     fontWeight: '700',
-    fontSize: FONT_SIZES.HeroTitle,
   },
   icon: {
     height: 20,
@@ -192,7 +188,7 @@ const styles = StyleSheet.create({
   emailWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    bottom: 280,
+    bottom: 350,
     width: '100%',
   },
   textContentWrapper: {

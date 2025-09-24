@@ -1,3 +1,5 @@
+import { ImageSourcePropType } from "react-native";
+
 export interface ListItem {
   dishId: number;
   categoryIndex: number,
@@ -6,6 +8,7 @@ export interface ListItem {
   category: string;
   price: string;
   currency: string;
+  image: ImageSourcePropType;
   calories?: string;
   tags?: string;
   description?: string;

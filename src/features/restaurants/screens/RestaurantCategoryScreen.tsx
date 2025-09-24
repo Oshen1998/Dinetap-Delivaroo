@@ -1,25 +1,38 @@
 import { StyleSheet, View } from 'react-native';
-import React from 'react';
-import { images } from '../../../themes/images';
+import React, { useCallback } from 'react';
 import ScrollViewCategoryList from '../../../components/spyList/ScrollViewCategoryList';
+import { useNavigation } from '@react-navigation/native';
+import { randomImage } from '../../../utils';
+import { useThemeStore } from '../../../store/themeStore';
 
 const RestaurantCategoryScreen = () => {
+  const {  goBack } = useNavigation();
+  const {Colors} = useThemeStore()
   const minimalRestaurantData = {
-    name: 'Local Cafe',
-    categories: ['Coffee', 'Snacks'],
+    name: "Tossed - St Martin's Lane",
+    categories: ['Halal', 'Salad', 'Healthy'],
     distance: '0.5 mi',
     openTime: '7:00 AM',
     openDay: 'Everyday',
-    minimumOrder: '$5.00',
-    deliveryFee: 'Free',
+    minimumOrder: '$5.00 minimum',
+    deliveryFee: '£0.49 delivery',
     rating: 4.2,
     reviewCount: 50,
-    restaurantImage: images.images.foods.food10,
+    restaurantImage: randomImage(),
   };
 
+  const onHandleGoBack = useCallback(() => {
+    goBack();
+  }, [goBack]);
+
   return (
-    <View style={styles.container}>
-      <ScrollViewCategoryList onStartGroupOrder={() => null} restaurantData={minimalRestaurantData} dateSet={[]}/>
+    <View style={[styles.container, {backgroundColor: Colors.Background.PRIMARY}]}>
+      <ScrollViewCategoryList
+        onBack={onHandleGoBack}
+        onStartGroupOrder={() => null}
+        restaurantData={minimalRestaurantData}
+        dateSet={[]}
+      />
     </View>
   );
 };

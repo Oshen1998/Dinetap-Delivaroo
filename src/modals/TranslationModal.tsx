@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 import { screenHeight, screenWidth } from '../utils/screens.util';
 import { images } from '../themes/images';
@@ -6,20 +6,22 @@ import { LightColors } from '../themes/colors';
 import { useThemeStore } from '../store/themeStore';
 import AppText from '../components/texts/AppText';
 import { FONT_FAMILIES, FONT_SIZES } from '../constants/fonts.constants';
+import { useAppStore } from '../store/appStore';
+import { useModal } from 'react-native-modalfy';
+import { MODAL_STACK } from './modal.constants';
 
 const TranslationModal = () => {
   const { Colors } = useThemeStore();
-  const [sourceText, setSourceText] = useState('');
-  const [translatedText, setTranslatedText] = useState('');
-  const [sourceLanguage, setSourceLanguage] = useState('English');
-  const [targetLanguage, setTargetLanguage] = useState('Sinhala');
+  const { language, setLanguage } = useAppStore();
+  const {closeModal} = useModal();
 
-  const handleSwapLanguages = () => {
-    setSourceLanguage(targetLanguage);
-    setTargetLanguage(sourceLanguage);
-    setSourceText(translatedText);
-    setTranslatedText(sourceText);
+
+  const handleSwapLanguages = (lang: string) => {
+    setLanguage(lang);
+    closeModal(MODAL_STACK.TRANSLATIONS);
   };
+
+
 
   return (
     <View
@@ -36,9 +38,9 @@ const TranslationModal = () => {
         <TouchableOpacity
           style={[
             styles.languageButton,
-            sourceLanguage === 'English' && styles.activeLanguage,
+            language === 'en' && styles.activeLanguage,
           ]}
-          onPress={() => setSourceLanguage('English')}
+          onPress={() => handleSwapLanguages('en')}
         >
           <AppText
             fontFamily={FONT_FAMILIES.IBMPlexSans.Medium}
@@ -49,18 +51,13 @@ const TranslationModal = () => {
             English
           </AppText>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.iconContainer}
-          onPress={handleSwapLanguages}
-        >
-          <Image source={images.icons.swaps} style={styles.swapIcon} />
-        </TouchableOpacity>
+        <Image source={images.icons.swaps} style={styles.swapIcon} />
         <TouchableOpacity
           style={[
             styles.languageButton,
-            sourceLanguage === 'Sinhala' && styles.activeLanguage,
+            language === 'si' && styles.activeLanguage,
           ]}
-          onPress={() => setSourceLanguage('Sinhala')}
+          onPress={() => handleSwapLanguages('si')}
         >
           <AppText
             fontFamily={FONT_FAMILIES.IBMPlexSans.Medium}

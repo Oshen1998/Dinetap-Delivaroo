@@ -15,6 +15,8 @@ import HomeScreen from '../features/home/screens/HomeScreen';
 import { screenWidth } from '../utils/screens.util';
 import { MODAL_STACK } from '../modals/modal.constants';
 import { useModal } from 'react-native-modalfy';
+import { useDefaultHooks } from '../hooks/useLanguage';
+import { useAuthStore } from '../store/authStore';
 
 export type DrawerParamList = {
   [ROUTES.HOME]: undefined;
@@ -42,11 +44,14 @@ const InitDrawerContent = (props: DrawerContentComponentProps) => (
 
 const RootNavigation = () => {
   const { Colors } = useThemeStore();
-  const {openModal} = useModal();
+  const { openModal } = useModal();
+  const { loginUser } = useAuthStore();
 
   const onHandleTranslations = () => {
     openModal(MODAL_STACK.TRANSLATIONS);
   };
+
+  useDefaultHooks();
 
   return (
     <Drawer.Navigator
@@ -85,7 +90,10 @@ const RootNavigation = () => {
             {
               key: 'SIGNUP',
               icon: images.icons.person,
-              onPress: () => navigation.navigation.toggleDrawer(),
+              onPress: async() => {
+                navigation.navigation.toggleDrawer();
+                await loginUser();
+              },
             },
           ];
           return MainHeader(navigation, actions);

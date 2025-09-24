@@ -26,7 +26,6 @@ const MenuItemCard = ({ item, onPress }: MenuItemCardProps) => {
           {item.description}
         </AppText>
         <View style={styles.priceRow}>
-          {/* <AppText textStyles={styles.price}>{item.price}</AppText> */}
           {item.isPopular && (
             <AppText
               textColor={Colors.Background.STATUS_CHIP}

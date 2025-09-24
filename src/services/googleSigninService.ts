@@ -17,69 +17,17 @@ export class GoogleSignInService {
     try {
       await GoogleSignin.hasPlayServices();
       const response: any = await GoogleSignin.signIn();
-
-      // Handle different possible response structures
       if (response && response.type === 'success') {
-        // If it's wrapped in a response object
         return response.data;
       } else if (response && response.user) {
-        // If it's already a User object
         return response;
       } else {
-        // If it's the direct response
         return response;
       }
     } catch (error: any) {
-      console.log('Sign-in error:', error);
       return null;
     }
   }
-
-  //   static async signIn(): Promise<{
-  //     success: boolean;
-  //     data?: User
-  //     error?: string;
-  //   }> {
-  //     try {
-  //       const hasPlayServices = await GoogleSignin.hasPlayServices();
-  //       if (!hasPlayServices) {
-  //         return {
-  //           success: false,
-  //           error: 'Google Play Services not available',
-  //         };
-  //       }
-
-  //       // GoogleSignin.signIn() returns User directly
-  //       const userInfo: User = await GoogleSignin.signIn();
-
-  //       return {
-  //         success: true,
-  //         data: userInfo, // This is already a User object
-  //       };
-  //     } catch (error: any) {
-  //       let errorMessage = 'Unknown error occurred';
-
-  //       switch (error.code) {
-  //         case statusCodes.SIGN_IN_CANCELLED:
-  //           errorMessage = 'User cancelled the login flow';
-  //           break;
-  //         case statusCodes.IN_PROGRESS:
-  //           errorMessage = 'Sign-in already in progress';
-  //           break;
-  //         case statusCodes.PLAY_SERVICES_NOT_AVAILABLE:
-  //           errorMessage = 'Play services not available or outdated';
-  //           break;
-  //         default:
-  //           errorMessage = error.message || 'Sign-in failed';
-  //       }
-
-  //       console.log('Sign-in error:', errorMessage);
-  //       return {
-  //         success: false,
-  //         error: errorMessage,
-  //       };
-  //     }
-  //   }
 
   static async signOut(): Promise<{ success: boolean; error?: string }> {
     try {
@@ -139,7 +87,6 @@ export class GoogleSignInService {
       const tokens = await GoogleSignin.getTokens();
       return tokens && tokens.accessToken ? true : false;
     } catch (error) {
-      console.log('No tokens found, user not signed in');
       return false;
     }
   }

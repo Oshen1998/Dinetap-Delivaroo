@@ -9,7 +9,7 @@ export const SectionHeader = ({ title }: { title: string }) => {
   const { Colors } = useThemeStore();
 
   return (
-    <View style={styles.sectionHeader}>
+    <View style={[styles.sectionHeader, { backgroundColor: Colors.Background.OFF_WHITE}]}>
       <AppText
         fontFamily={FONT_FAMILIES.IBMPlexSans.SemiBold}
         fontSize={FONT_SIZES.SmallTitle}
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   sectionHeader: {
     paddingHorizontal: 20,
     paddingVertical: 16,
-    borderBottomWidth: 0.6,
+    borderBottomWidth: 0.2,
     borderBottomColor: LightColors.Border.DASHED,
     height: 60,
     justifyContent: 'center',

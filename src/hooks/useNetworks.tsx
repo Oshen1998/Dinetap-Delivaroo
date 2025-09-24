@@ -13,27 +13,25 @@ const useNetworkStatus = () => {
     const unsubscribe = NetInfo.addEventListener(state => {
       setIsConnected(state.isConnected ?? false);
       setDetails(state);
-
-      if (state.isConnected === false) {
-        openModal(MODAL_STACK.NETWORK_MODAL);
-      } else {
-        closeModal(MODAL_STACK.NETWORK_MODAL);
-      }
     });
 
     NetInfo.fetch().then(state => {
       setIsConnected(state.isConnected ?? false);
       setDetails(state);
+    });
 
-      if (state.isConnected === false) {
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    if (isConnected !== null) {
+      if (!isConnected) {
         openModal(MODAL_STACK.NETWORK_MODAL);
       } else {
         closeModal(MODAL_STACK.NETWORK_MODAL);
       }
-    });
-
-    return () => unsubscribe();
-  }, [openModal, closeModal]);
+    }
+  }, [isConnected, openModal, closeModal]);
 
   return { isConnected, details };
 };

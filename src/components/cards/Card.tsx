@@ -8,11 +8,14 @@ import {
 } from 'react-native';
 import AppText from '../texts/AppText';
 import { useThemeStore } from '../../store/themeStore';
-import { LightColors } from '../../themes/colors';
+import { getShadow } from '../../utils/shadow.util';
+import { FONT_FAMILIES } from '../../constants/fonts.constants';
+import { images } from '../../themes/images';
 
-type CardType = 'discount' | 'popular';
+export type CardType = 'discount' | 'popular';
 
 interface BaseCardProps {
+  id: number;
   type: CardType;
   title: string;
   image: string;
@@ -54,23 +57,49 @@ const FoodCard = (props: CardProps) => {
       {/* Discount Badge */}
       {props.type === 'discount' && (
         <View style={styles.badge}>
-          <AppText textStyles={[styles.badgeText, { color: Colors.Button.BUTTON_TEXT }]}>{props.discount}</AppText>
+          <AppText
+            textStyles={[
+              styles.badgeText,
+              { color: Colors.Button.BUTTON_TEXT },
+            ]}
+          >
+            {props.discount}
+          </AppText>
         </View>
       )}
 
       <View style={styles.content}>
-        <AppText textStyles={styles.title}>{props.title}</AppText>
+        <AppText textStyles={styles.title} numberOfLines={1}>
+          {props.title}
+        </AppText>
 
-        {props.type === 'discount' && (
-          <AppText textStyles={styles.description} numberOfLines={2}>
+        {/* {props.type === 'discount' && (
+          <AppText
+            textColor={Colors.Text.DESCRIPTION}
+            fontFamily={FONT_FAMILIES.IBMPlexSans.Regular}
+            textStyles={styles.description}
+            numberOfLines={2}
+          >
             {props.description}
           </AppText>
-        )}
+        )} */}
 
-        <AppText textStyles={styles.subText}>{props.calories} kcal</AppText>
+        <AppText
+          textColor={Colors.Text.DESCRIPTION}
+          fontFamily={FONT_FAMILIES.IBMPlexSans.Regular}
+          textStyles={styles.description}
+        >
+          {props.calories} kcal
+        </AppText>
 
         <View style={styles.footer}>
-          <AppText textStyles={styles.price}>{props.price}</AppText>
+          <AppText
+            textColor={Colors.Text.DESCRIPTION}
+            fontFamily={FONT_FAMILIES.IBMPlexSans.Regular}
+            textStyles={styles.description}
+          >
+            {props.price}
+          </AppText>
 
           {props.type === 'discount' && props.tags && (
             <AppText textStyles={styles.tag}>{props.tags.join(' · ')}</AppText>
@@ -78,38 +107,31 @@ const FoodCard = (props: CardProps) => {
         </View>
       </View>
 
-      {props.type === 'popular' && (
-        <TouchableOpacity
-          style={[
-            styles.plusButton,
-            { backgroundColor: Colors.Button.PRIMARY },
-          ]}
-          onPress={props.onPress}
-        >
-          <AppText
-            textStyles={[styles.plusText, { color: Colors.Button.BUTTON_TEXT }]}
-          >
-            +
-          </AppText>
-        </TouchableOpacity>
-      )}
+      <TouchableOpacity
+        style={[styles.plusButton, { backgroundColor: Colors.Button.ACCENT }]}
+        onPress={props.onPress}
+      >
+        <Image
+          source={images.icons.add}
+          style={styles.icon}
+          tintColor={Colors.Button.BUTTON_TEXT}
+        />
+      </TouchableOpacity>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 8,
+    borderRadius: 5,
     marginBottom: 16,
     overflow: 'hidden',
-    elevation: 2,
-    shadowColor: LightColors.SHADOW.BACKGROUND,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 2,
+    borderWidth: 0.5,
+    borderColor: '#eee',
+    ...getShadow(5),
   },
   discountCard: {
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderColor: '#eee',
   },
   image: {
@@ -138,23 +160,12 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   description: {
-    fontSize: 13,
-    color: '#555',
     marginBottom: 6,
-  },
-  subText: {
-    fontSize: 12,
-    color: '#777',
-    marginBottom: 4,
   },
   footer: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-  },
-  price: {
-    fontSize: 14,
-    fontWeight: 'bold',
   },
   tag: {
     fontSize: 13,
@@ -170,16 +181,13 @@ const styles = StyleSheet.create({
     height: 42,
     justifyContent: 'center',
     alignItems: 'center',
-    elevation: 2,
-    shadowColor:  LightColors.SHADOW.LIGHT_BG,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 2,
+    ...getShadow(2)
   },
   plusText: {
     fontSize: 30,
     fontWeight: '400',
   },
+  icon: { height: 30, width: 30 },
 });
 
 export default FoodCard;

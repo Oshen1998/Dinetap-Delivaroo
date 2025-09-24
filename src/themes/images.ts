@@ -20,6 +20,8 @@ export const images = {
     bike: require('../assets/icons/bike/bike.png') as ImageSourcePropType,
     translate: require('../assets/icons/translate/translate.png') as ImageSourcePropType,
     swaps: require('../assets/icons/swap/swap.png') as ImageSourcePropType,
+    info: require('../assets/icons/info/info.png') as ImageSourcePropType,
+    add: require('../assets/icons//plus/plus.png') as ImageSourcePropType,
   },
 
   images:{

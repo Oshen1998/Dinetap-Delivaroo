@@ -1,5 +1,8 @@
 import React, { memo } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
+import AppText from '../components/texts/AppText';
+import { FONT_FAMILIES } from '../constants/fonts.constants';
+import { LightColors } from '../themes/colors';
 
 interface UserProfileProps {
   name: string;
@@ -12,8 +15,19 @@ const UserProfile = ({ name, email, photoUrl }: UserProfileProps) => {
     <View style={styles.container}>
       <Image source={{ uri: photoUrl }} style={styles.profilePhoto} />
       <View style={styles.content}>
-        <Text style={styles.nameText}>{name}</Text>
-        <Text style={styles.emailText}>{email}</Text>
+        <AppText
+          fontFamily={FONT_FAMILIES.IBMPlexSans.Medium}
+          textStyles={styles.nameText}
+        >
+          {name}
+        </AppText>
+        <AppText
+          textColor={LightColors.Text.DESCRIPTION}
+          textStyles={styles.emailText}
+          fontFamily={FONT_FAMILIES.IBMPlexSans.Medium}
+        >
+          {email}
+        </AppText>
       </View>
     </View>
   );
@@ -39,7 +53,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: 'gray',
   },
-  content:{marginHorizontal: 20}
+  content: { marginHorizontal: 20 },
 });
 
 export default memo(UserProfile);

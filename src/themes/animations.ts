@@ -3,5 +3,4 @@ export const animations = {
     loading: require('../assets/animations/loading.json'),
     error: require('../assets/animations/error.json'),
     success: require('../assets/animations/success.json'),
-   
 };

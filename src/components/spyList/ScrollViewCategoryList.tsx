@@ -9,20 +9,24 @@ import {
   LayoutChangeEvent,
   StyleSheet,
   ImageSourcePropType,
+  Alert,
 } from 'react-native';
 import { CategoryTabs } from './components/CategoryTabs';
 import { SectionHeader } from './components/SectionHeader';
 import { DishItem } from './components/DishItem';
 import { useThemeStore } from '../../store/themeStore';
 import AppText from '../texts/AppText';
-import { generateRandomNumber, screenWidth } from '../../utils/screens.util';
 import { FONT_FAMILIES, FONT_SIZES } from '../../constants/fonts.constants';
 import { getShadow } from '../../utils/shadow.util';
 import { LightColors } from '../../themes/colors';
 import { images } from '../../themes/images';
 import { Category } from '../../constants/interface/spyList';
 import useRestaurantStore from '../../store/restaurantStore';
-import { titleCase } from '../../utils';
+import { generateRandomNumber, titleCase } from '../../utils';
+import { screenWidth } from '../../utils/screens.util';
+import HorizontalScrollList from '../cards/horizontalList/HorizontalScrollList';
+import { useNavigation } from '@react-navigation/native';
+import { ROUTES } from '../../constants/enums/navigation.enum';
 
 export interface ScrollViewCategoryList {
   name: string;
@@ -44,8 +48,6 @@ export interface ScrollViewCategoryListProps {
   onChangeDelivery?: () => void;
 }
 
-
-
 const ScrollViewCategoryList = ({
   restaurantData,
   onBack,
@@ -53,6 +55,7 @@ const ScrollViewCategoryList = ({
   onStartGroupOrder,
 }: ScrollViewCategoryListProps) => {
   const { Colors } = useThemeStore();
+  const { navigate } = useNavigation();
   const { categories } = useRestaurantStore();
   const [activeCategory, setActiveCategory] = useState(0);
   const [sectionOffsets, setSectionOffsets] = useState<number[]>([]);
@@ -103,7 +106,6 @@ const ScrollViewCategoryList = ({
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const scrollY = event.nativeEvent.contentOffset.y;
-
     for (let i = 0; i < sectionOffsets.length; i++) {
       const nextOffset = sectionOffsets[i + 1] ?? Infinity;
       if (scrollY >= sectionOffsets[i] - 80 && scrollY < nextOffset - 80) {
@@ -118,18 +120,23 @@ const ScrollViewCategoryList = ({
   const handleCategoryPress = (categoryIndex: number) => {
     if (scrollRef.current && sectionOffsets[categoryIndex] != null) {
       scrollRef.current.scrollTo({
-        y: sectionOffsets[categoryIndex] - 10,
+        y: sectionOffsets[categoryIndex] + 500,
         animated: true,
       });
       setActiveCategory(categoryIndex);
     }
   };
 
+  const handleOnPressItem = (id: number) => {
+    Alert.alert(`Selected Dish Id ${id}`);
+    navigate(ROUTES.PRODUCT as never);
+  };
+
   return (
     <ScrollView
       ref={scrollRef}
       nestedScrollEnabled
-      stickyHeaderIndices={[4]}
+      stickyHeaderIndices={[5]}
       onScroll={handleScroll}
       contentContainerStyle={{ backgroundColor: Colors.Background.PRIMARY }}
       scrollEventThrottle={16}
@@ -163,7 +170,7 @@ const ScrollViewCategoryList = ({
             <AppText
               fontFamily={FONT_FAMILIES.IBMPlexSans.Regular}
               fontSize={FONT_SIZES.Caption}
-              textColor={LightColors.Text.PRIMARY}
+              textColor={Colors.Text.PRIMARY}
             >
               Start group order
             </AppText>
@@ -190,7 +197,6 @@ const ScrollViewCategoryList = ({
           >
             10 - 20 min {' · '}
             {[
-              { name: 'Halal' },
               { name: 'Salad' },
               { name: 'Healthy' },
               { name: 'Delicious' },
@@ -215,12 +221,7 @@ const ScrollViewCategoryList = ({
       {/* Info Section */}
       <TouchableOpacity style={styles.infoRow}>
         <View style={styles.infoIcon}>
-          <AppText
-            fontFamily={FONT_FAMILIES.IBMPlexSans.Medium}
-            fontSize={FONT_SIZES.Body}
-          >
-            i
-          </AppText>
+          <Image source={images.icons.info} />
         </View>
         <View style={styles.infoTextContainer}>
           <AppText
@@ -270,8 +271,7 @@ const ScrollViewCategoryList = ({
 
       <View style={styles.infoRow}>
         <View style={styles.deliveryIcon}>
-          {/* <AppText textStyles={styles.deliveryIconText}>🚴</AppText> */}
-          <Image source={images.icons.bike}  style={styles.deliveryIconText}/>
+          <Image source={images.icons.bike} style={styles.deliveryIconText} />
         </View>
         <View style={styles.infoTextContainer}>
           <AppText
@@ -290,6 +290,10 @@ const ScrollViewCategoryList = ({
             Change
           </AppText>
         </TouchableOpacity>
+      </View>
+
+      <View>
+        <HorizontalScrollList />
       </View>
 
       <View>
@@ -312,12 +316,15 @@ const ScrollViewCategoryList = ({
             <SectionHeader title={category.categoryName} />
             {category.dishes.map((dish, dishIndex) => (
               <DishItem
+                id={Number(dish.dishId)}
                 key={dishIndex}
                 name={dish.dishName}
                 description={dish.description}
                 calories={dish.calories}
                 price={dish.price}
+                onPressItem={handleOnPressItem}
                 currency={dish.currency}
+                image={dish.image}
                 tags={titleCase(dish?.tags || '')}
               />
             ))}
@@ -436,7 +443,7 @@ export const styles = StyleSheet.create({
   },
   deliveryIconText: {
     height: 25,
-    width: 25
+    width: 25,
   },
   infoTextContainer: {
     flex: 1,

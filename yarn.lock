@@ -5156,6 +5156,11 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
 
+localized-strings@^0.2.0:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/localized-strings/-/localized-strings-0.2.4.tgz#9d61c06b60cc7b5edf7c46e6c7f2d1ecb84aeb2c"
+  integrity sha512-TKDhqFPkIIN/if2FSvVVZTaM/GP9TzfgdQ2uY65mr32xgFu5nqkKXprXbzy5rfx32DF5LDvS/y1UqYF/mAscYA==
+
 locate-path@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-5.0.0.tgz#1afba396afd676a6d42504d0a67a3a7eb9f62aa0"
@@ -6106,6 +6111,13 @@ react-is@^19.1.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-19.1.1.tgz#038ebe313cf18e1fd1235d51c87360eb87f7c36a"
   integrity sha512-tr41fA15Vn8p4X9ntI+yCyeGSf1TlYaY5vlTZfQmeLBrFo3psOPX6HhTDnFNL9uj3EhP0KAQ80cugCl4b4BERA==
 
+react-localization@^1.0.17:
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/react-localization/-/react-localization-1.0.19.tgz#b65a7fa58096cff6aa38bc3a0c4817ec97469ef0"
+  integrity sha512-f4E6T8xRis19K8qMOnnhjGV2quy1YH2lrSsnAiytvgt7uOSp6WgDhrZH6XZEaEFqupTOCFSf8uagIoIAkjl4JA==
+  dependencies:
+    localized-strings "^0.2.0"
+
 react-native-bootsplash@^6.3.11:
   version "6.3.11"
   resolved "https://registry.yarnpkg.com/react-native-bootsplash/-/react-native-bootsplash-6.3.11.tgz#5ed543e5273d7d75912dbfc56c5b0a66bb4ee924"
@@ -6158,6 +6170,13 @@ react-native-is-edge-to-edge@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-native-is-edge-to-edge/-/react-native-is-edge-to-edge-1.2.1.tgz#64e10851abd9d176cbf2b40562f751622bde3358"
   integrity sha512-FLbPWl/MyYQWz+KwqOZsSyj2JmLKglHatd3xLZWskXOpRaio4LfEDEz8E/A6uD8QoTHW6Aobw1jbEwK7KMgR7Q==
+
+react-native-localization@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/react-native-localization/-/react-native-localization-2.3.2.tgz#ac82089519681a8e53fa39dcf7a9f5b6be2c5cb6"
+  integrity sha512-9i2wkCFwvKVXq0w6tu1eTCGUZuKBQXoCGWBWbW4HYsFJe+MEQsFCYdrhoBsn8IAr/KA9AYUiEyxxuN3hLRxF4w==
+  dependencies:
+    react-localization "^1.0.17"
 
 react-native-modalfy@^3.7.0:
   version "3.7.0"
@@ -7549,6 +7568,11 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+zustand-persist@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/zustand-persist/-/zustand-persist-0.4.0.tgz#55f32c3cd98ea91b89f07ae249d20e471f0a5ba3"
+  integrity sha512-u6bBIc4yZRpSKBKuTNhoqvoIb09gGHk2NkiPg4K7MPIWTYZg70PlpBn48QEDnKZwfNurnf58TaW5BuMGIMf5hw==
 
 zustand@^5.0.8:
   version "5.0.8"
