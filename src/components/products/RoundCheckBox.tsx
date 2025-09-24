@@ -35,7 +35,6 @@ const RoundedCheckbox = ({
       )}
     </View>
     <View style={checkboxStyles.rightContainer}>
-      {/* <AppText textStyles={checkboxStyles.price}>+£{price.toFixed(2)}</AppText> */}
       <View
         style={[
           checkboxStyles.outerCircle,

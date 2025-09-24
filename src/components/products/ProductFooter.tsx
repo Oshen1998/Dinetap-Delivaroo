@@ -50,7 +50,7 @@ const ProductFooter = ({ quantity, onQuantityChange }: ProductFooterProp) => {
           textColor={Colors.Text.ACCENT}
           textStyles={footerStyles.addButtonText}
         >
-          Add for £ 233.66
+          Add for LKR 233.66
         </AppText>
       </TouchableOpacity>
     </View>
