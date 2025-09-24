@@ -24,6 +24,7 @@ import { Category } from '../../constants/interface/spyList';
 import useRestaurantStore from '../../store/restaurantStore';
 import { generateRandomNumber, titleCase } from '../../utils';
 import { screenWidth } from '../../utils/screens.util';
+import HorizontalScrollList from '../cards/horizontalList/HorizontalScrollList';
 
 export interface ScrollViewCategoryList {
   name: string;
@@ -131,7 +132,7 @@ const ScrollViewCategoryList = ({
     <ScrollView
       ref={scrollRef}
       nestedScrollEnabled
-      stickyHeaderIndices={[4]}
+      stickyHeaderIndices={[5]}
       onScroll={handleScroll}
       contentContainerStyle={{ backgroundColor: Colors.Background.PRIMARY }}
       scrollEventThrottle={16}
@@ -216,7 +217,7 @@ const ScrollViewCategoryList = ({
       {/* Info Section */}
       <TouchableOpacity style={styles.infoRow}>
         <View style={styles.infoIcon}>
-           <Image source={images.icons.info} />
+          <Image source={images.icons.info} />
         </View>
         <View style={styles.infoTextContainer}>
           <AppText
@@ -285,6 +286,10 @@ const ScrollViewCategoryList = ({
             Change
           </AppText>
         </TouchableOpacity>
+      </View>
+
+      <View>
+        <HorizontalScrollList />
       </View>
 
       <View>

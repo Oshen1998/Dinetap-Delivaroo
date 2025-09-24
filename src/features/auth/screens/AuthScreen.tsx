@@ -17,7 +17,6 @@ const AuthScreen = () => {
   const { setUserDetails } = useAuthStore();
   const { goBack } = useNavigation();
 
-
   useEffect(() => {
     GoogleSignInService.configure();
   }, []);
@@ -27,12 +26,11 @@ const AuthScreen = () => {
       const userInfo = await GoogleSignInService.signIn();
       if (userInfo) {
         setUserDetails(userInfo);
+        goBack();
       }
     } catch (error) {
       Alert.alert('Error', 'Failed to sign in with Google');
-    } finally {
-       goBack();
-    }
+    } 
   };
 
   const onPressGoogle = useCallback(() => {}, []);

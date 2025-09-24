@@ -1,5 +1,6 @@
 import EncryptedStorage from 'react-native-encrypted-storage';
 import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
 import { login } from '../services/authApi';
 import { User } from '@react-native-google-signin/google-signin';
 
@@ -13,71 +14,82 @@ export interface AuthState {
   isGoogleSigIn: boolean;
   tokens: Tokens;
   user: User | null;
-  setTokens: (tokens: Tokens) => Promise<void>;
-  clearTokens: () => Promise<void>;
+  setTokens: (tokens: Tokens) => void;
+  clearTokens: () => void;
   clearUser: () => void;
-  loadTokens: () => Promise<void>;
   loginUser: () => Promise<Tokens>;
-  setUserDetails: (data: User) => Promise<void>;
+  setUserDetails: (data: User) => void;
 }
 
-export const useAuthStore = create<AuthState>((set, get) => ({
-  tokens: {
-    accessToken: '',
-    refreshToken: '',
+// Custom storage adapter for EncryptedStorage
+const encryptedStorage = {
+  getItem: async (name: string): Promise<string | null> => {
+    return await EncryptedStorage.getItem(name);
   },
-  loading: false,
-  isGoogleSigIn: false,
-  user: null,
-
-  setTokens: async (tokens: Tokens) => {
-    await EncryptedStorage.setItem('authTokens', JSON.stringify(tokens));
-    set({ tokens });
+  setItem: async (name: string, value: string): Promise<void> => {
+    await EncryptedStorage.setItem(name, value);
   },
+  removeItem: async (name: string): Promise<void> => {
+    await EncryptedStorage.removeItem(name);
+  },
+};
 
-  clearTokens: async () => {
-    await EncryptedStorage.removeItem('authTokens');
-    set({
+export const useAuthStore = create<AuthState>()(
+  persist(
+    (set, get) => ({
       tokens: {
         accessToken: '',
         refreshToken: '',
       },
-    });
-  },
-
-  clearUser: () => {
-    set({
-      user: null,
+      loading: false,
       isGoogleSigIn: false,
-    });
-  },
+      user: null,
 
-  loadTokens: async () => {
-    const stored = await EncryptedStorage.getItem('authTokens');
-    if (stored) {
-      set({ tokens: JSON.parse(stored) });
+      setTokens: (tokens: Tokens) => {
+        set({ tokens });
+      },
+
+      clearTokens: () => {
+        set({
+          tokens: {
+            accessToken: '',
+            refreshToken: '',
+          },
+        });
+      },
+
+      clearUser: () => {
+        set({
+          user: null,
+          isGoogleSigIn: false,
+        });
+      },
+
+      setUserDetails: (data: User) => {
+        set({
+          user: data,
+          isGoogleSigIn: true,
+        });
+      },
+
+      loginUser: async (): Promise<Tokens> => {
+        set({ loading: true });
+        try {
+          const data = await login();
+          get().setTokens(data);
+          return data;
+        } catch (err) {
+          console.log('Login Failed', err);
+          return get().tokens;
+        } finally {
+          set({ loading: false });
+        }
+      },
+    }),
+    {
+      name: 'auth-storage',
+      storage: createJSONStorage(() => encryptedStorage),
+      partialize: (state) => ({ tokens: state.tokens }),
     }
-  },
-
-  setUserDetails: async (data: User) => {
-    set({
-      user: data,
-      isGoogleSigIn: true,
-    });
-  },
-
-  loginUser: async (): Promise<Tokens> => {
-    set({ loading: true });
-    try {
-      const data = await login();
-
-      await get().setTokens(data);
-      await get().loadTokens();
-    } catch (err) {
-      console.log('Login Failed', err);
-    } finally {
-      set({ loading: false });
-      return get().tokens;
-    }
-  },
-}));
+  )
+);
