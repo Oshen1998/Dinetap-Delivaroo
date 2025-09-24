@@ -59,6 +59,7 @@ const AuthScreen = () => {
             iconTintColor={LightColors.Icon.ACCENT}
             iconStyle={styles.icon}
             isStart={false}
+            fontSize={FONT_SIZES.Caption}
             isNear
             textStyles={styles.socialButton}
             textColor={Colors.Text.ACCENT}
@@ -75,6 +76,7 @@ const AuthScreen = () => {
             isStart={false}
             isNear
             textStyles={styles.socialButton}
+            fontSize={FONT_SIZES.Caption}
             textColor={LightColors.Text.PRIMARY}
             style={{
               backgroundColor: LightColors.Button.ACCENT,
@@ -88,6 +90,7 @@ const AuthScreen = () => {
             iconTintColor={Colors.Icon.ACCENT}
             iconStyle={styles.icon}
             isStart={false}
+            fontSize={FONT_SIZES.Caption}
             isNear
             textStyles={styles.socialButton}
             textColor={Colors.Text.ACCENT}
@@ -111,6 +114,7 @@ const AuthScreen = () => {
                 iconTintColor={Colors.Icon.ACCENT}
                 iconStyle={styles.icon}
                 isStart={false}
+                fontSize={FONT_SIZES.Caption}
                 isNear
                 textStyles={styles.socialButton}
                 textColor={Colors.Text.ACCENT}
@@ -121,8 +125,10 @@ const AuthScreen = () => {
                 onPress={onPressGoogle}
               />
               <AppText
+                fontFamily={FONT_FAMILIES.IBMPlexSans.Regular}
+                fontSize={FONT_SIZES.Body}
                 containerStyles={styles.textContentWrapper}
-                textAlign="center"
+                textAlign="left"
               >
                 By continuing you agree to our <AppPressableText text="T&C" />.
                 Please also check out our{' '}
@@ -158,7 +164,6 @@ const styles = StyleSheet.create({
   },
   socialButton: {
     fontWeight: '700',
-    fontSize: FONT_SIZES.HeroTitle,
   },
   icon: {
     height: 20,
@@ -181,7 +186,7 @@ const styles = StyleSheet.create({
   emailWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    bottom: 280,
+    bottom: 350,
     width: '100%',
   },
   textContentWrapper: {

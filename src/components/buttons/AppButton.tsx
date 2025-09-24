@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import React, { memo } from 'react';
 import AppText from '../texts/AppText';
+import { FONT_SIZES } from '../../constants/fonts.constants';
 
 interface SocialLoginButtonProps extends Omit<TouchableOpacityProps, 'style'> {
   text?: string;
@@ -27,6 +28,7 @@ interface SocialLoginButtonProps extends Omit<TouchableOpacityProps, 'style'> {
   textColor?: string;
   borderColor?: string;
   borderWidth?: number;
+  fontSize?: number;
   borderRadius?: number;
   height?: number;
   loading?: boolean;
@@ -53,6 +55,7 @@ const AppButton = ({
   loading = false,
   iconTintColor,
   isNear,
+  fontSize = FONT_SIZES.Body,
   isStart,
   ...props
 }: SocialLoginButtonProps) => {
@@ -98,7 +101,7 @@ const AppButton = ({
                   style={iconStyle}
                 />
               )}
-              <AppText textStyles={textStyles} textColor={textColor}>
+              <AppText fontSize={fontSize} textStyles={textStyles} textColor={textColor}>
                 {text}
               </AppText>
             </View>
