@@ -25,6 +25,8 @@ import useRestaurantStore from '../../store/restaurantStore';
 import { generateRandomNumber, titleCase } from '../../utils';
 import { screenWidth } from '../../utils/screens.util';
 import HorizontalScrollList from '../cards/horizontalList/HorizontalScrollList';
+import { useNavigation } from '@react-navigation/native';
+import { ROUTES } from '../../constants/enums/navigation.enum';
 
 export interface ScrollViewCategoryList {
   name: string;
@@ -53,6 +55,7 @@ const ScrollViewCategoryList = ({
   onStartGroupOrder,
 }: ScrollViewCategoryListProps) => {
   const { Colors } = useThemeStore();
+  const { navigate } = useNavigation();
   const { categories } = useRestaurantStore();
   const [activeCategory, setActiveCategory] = useState(0);
   const [sectionOffsets, setSectionOffsets] = useState<number[]>([]);
@@ -126,6 +129,7 @@ const ScrollViewCategoryList = ({
 
   const handleOnPressItem = (id: number) => {
     Alert.alert(`Selected Dish Id ${id}`);
+    navigate(ROUTES.PRODUCT as never);
   };
 
   return (

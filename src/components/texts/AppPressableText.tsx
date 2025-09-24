@@ -25,7 +25,7 @@ const AppPressableText = ({ onPress, text }: AppPressableTextProps) => {
 
 const styles = StyleSheet.create({
   textStyle: {
-    textDecorationLine: 'underline',
+    textDecorationLine: 'none',
     color: LightColors.Border.THEME,
     top: 4
   },

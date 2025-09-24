@@ -22,10 +22,6 @@ const DrawerContent: React.FC<CustomDrawerProps> = props => {
 
   const insets = useSafeAreaInsets();
 
-  console.log(isGoogleSigIn,'isGoogleSigIn');
-  
-
-
   return (
     <View
       style={[
