@@ -9,6 +9,7 @@ import {
 import AppText from '../texts/AppText';
 import { useThemeStore } from '../../store/themeStore';
 import { LightColors } from '../../themes/colors';
+import { images } from '../../themes/images';
 
 type CardType = 'discount' | 'popular';
 
@@ -54,7 +55,14 @@ const FoodCard = (props: CardProps) => {
       {/* Discount Badge */}
       {props.type === 'discount' && (
         <View style={styles.badge}>
-          <AppText textStyles={[styles.badgeText, { color: Colors.Button.BUTTON_TEXT }]}>{props.discount}</AppText>
+          <AppText
+            textStyles={[
+              styles.badgeText,
+              { color: Colors.Button.BUTTON_TEXT },
+            ]}
+          >
+            {props.discount}
+          </AppText>
         </View>
       )}
 
@@ -86,11 +94,10 @@ const FoodCard = (props: CardProps) => {
           ]}
           onPress={props.onPress}
         >
-          <AppText
-            textStyles={[styles.plusText, { color: Colors.Button.BUTTON_TEXT }]}
-          >
-            +
-          </AppText>
+          <Image
+            source={images.icons.add}
+            tintColor={Colors.Button.BUTTON_TEXT}
+          />
         </TouchableOpacity>
       )}
     </TouchableOpacity>
@@ -171,7 +178,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 2,
-    shadowColor:  LightColors.SHADOW.LIGHT_BG,
+    shadowColor: LightColors.SHADOW.LIGHT_BG,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 2,

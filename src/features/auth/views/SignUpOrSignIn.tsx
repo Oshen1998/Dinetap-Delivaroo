@@ -16,7 +16,7 @@ const SignUpOrSignIn = () => {
   const { openModal, closeModal } = useModal();
 
   /**
-   * This approach is not ideal for a showcase.
+   * This approach is not good, just write for assignment 
    */
   const { loginUser } = useAuthStore();
 

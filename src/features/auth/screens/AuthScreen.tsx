@@ -27,7 +27,6 @@ const AuthScreen = () => {
       const userInfo = await GoogleSignInService.signIn();
       if (userInfo) {
         setUserDetails(userInfo);
-        Alert.alert('Success', `Welcome ${userInfo.user.name}!`);
       }
     } catch (error) {
       Alert.alert('Error', 'Failed to sign in with Google');
