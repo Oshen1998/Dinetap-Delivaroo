@@ -14,7 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const AuthScreen = () => {
   const { Colors } = useThemeStore();
-  const { setUserDetails } = useAuthStore();
+  const { setUserDetails, setIsSignin } = useAuthStore();
   const { goBack } = useNavigation();
 
   useEffect(() => {
@@ -24,11 +24,13 @@ const AuthScreen = () => {
   const handleSignIn = async () => {
     try {
       const userInfo = await GoogleSignInService.signIn();
-      if (userInfo) {
+      if (userInfo && userInfo.user) {
         setUserDetails(userInfo);
+        setIsSignin(true);
         goBack();
       }
     } catch (error) {
+      setIsSignin(false);
       Alert.alert('Error', 'Failed to sign in with Google');
     } 
   };

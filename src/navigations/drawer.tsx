@@ -18,11 +18,13 @@ type CustomDrawerProps = DrawerContentComponentProps;
 
 const DrawerContent: React.FC<CustomDrawerProps> = props => {
   const { Colors, switchTheme, isDarkMode } = useThemeStore();
-  const { user } = useAuthStore();
+  const { isGoogleSigIn } = useAuthStore();
 
   const insets = useSafeAreaInsets();
 
-  console.log(user, 'user');
+  console.log(isGoogleSigIn,'isGoogleSigIn');
+  
+
 
   return (
     <View
@@ -46,7 +48,7 @@ const DrawerContent: React.FC<CustomDrawerProps> = props => {
       </View>
 
       <DrawerContentScrollView>
-        {!user && (
+        {!isGoogleSigIn && (
           <View style={styles.buttonContainer}>
             <SignUpOrSignIn />
           </View>

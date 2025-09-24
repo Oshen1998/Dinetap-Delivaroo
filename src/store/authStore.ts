@@ -17,6 +17,7 @@ export interface AuthState {
   setTokens: (tokens: Tokens) => void;
   clearTokens: () => void;
   clearUser: () => void;
+  setIsSignin: (flag: boolean) => void;
   loginUser: () => Promise<Tokens>;
   setUserDetails: (data: User) => void;
 }
@@ -65,10 +66,15 @@ export const useAuthStore = create<AuthState>()(
         });
       },
 
+      setIsSignin: (flag: boolean) => {
+        set({
+          isGoogleSigIn: flag,
+        });
+      },
+
       setUserDetails: (data: User) => {
         set({
           user: data,
-          isGoogleSigIn: true,
         });
       },
 
@@ -89,7 +95,7 @@ export const useAuthStore = create<AuthState>()(
     {
       name: 'auth-storage',
       storage: createJSONStorage(() => encryptedStorage),
-      partialize: (state) => ({ tokens: state.tokens }),
-    }
-  )
+      partialize: state => ({ tokens: state.tokens }),
+    },
+  ),
 );
