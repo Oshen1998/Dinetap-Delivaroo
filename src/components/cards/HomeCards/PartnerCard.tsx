@@ -59,15 +59,15 @@ const styles = StyleSheet.create({
   cardContainer: {
     width: screenWidth * 0.9,
     alignSelf: 'center',
-    borderRadius: 12,
+    borderRadius: 5,
     marginVertical: 15,
     ...getShadow(5),
   },
   image: {
     width: '100%',
     height: 200,
-    borderTopLeftRadius: 12,
-    borderTopRightRadius: 12,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
   },
   content: {
     padding: 20,
