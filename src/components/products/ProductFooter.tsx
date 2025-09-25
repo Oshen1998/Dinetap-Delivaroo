@@ -10,8 +10,10 @@ export type ProductFooterProp = {
   totalPrice?: number;
 };
 
-const ProductFooter = ({ quantity, onQuantityChange }: ProductFooterProp) => {
+const ProductFooter = ({ quantity, onQuantityChange, totalPrice = 220 }: ProductFooterProp) => {
   const { Colors } = useThemeStore();
+
+
 
   return (
     <View
@@ -50,7 +52,7 @@ const ProductFooter = ({ quantity, onQuantityChange }: ProductFooterProp) => {
           textColor={Colors.Text.ACCENT}
           textStyles={footerStyles.addButtonText}
         >
-          Add for LKR 233.66
+          Add for LKR {Number(totalPrice)}
         </AppText>
       </TouchableOpacity>
     </View>
@@ -102,9 +104,9 @@ const footerStyles = StyleSheet.create({
     textAlign: 'center',
   },
   addButton: {
-    width: '100%',
+    width: '95%',
     paddingVertical: 16,
-    borderRadius: 12,
+    borderRadius: 5,
     backgroundColor: LightColors.Button.PRIMARY,
     justifyContent: 'center',
     alignItems: 'center',
