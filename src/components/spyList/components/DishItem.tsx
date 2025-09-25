@@ -156,6 +156,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 8,
+    marginVertical: 8
   },
   dishImage: {
     width: '100%',

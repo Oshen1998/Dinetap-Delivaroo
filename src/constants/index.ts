@@ -41,7 +41,7 @@ export const RESTAURANT_DUMMIES: MenuItemData[] = [
   {
     restaurantId: 1,
     name: 'The Gourmet Grill',
-    price: '£15.99',
+    price: 'LKR 15.99',
     description:
       'A cozy, modern grill serving premium cuts and classic comfort food with a twist.',
     restaurantImage: images.images.foods.food1,
@@ -50,7 +50,7 @@ export const RESTAURANT_DUMMIES: MenuItemData[] = [
   {
     restaurantId: 2,
     name: 'Vegan Vibe Café',
-    price: '£13.99',
+    price: 'LKR 13.99',
     description:
       'A plant-based paradise offering fresh salads, bowls, and smoothies.',
     restaurantImage: images.images.foods.food2,
@@ -59,7 +59,7 @@ export const RESTAURANT_DUMMIES: MenuItemData[] = [
   {
     restaurantId: 3,
     name: 'Coastal Catch Seafood',
-    price: '£13.99',
+    price: 'LKR 13.99',
     description:
       'Serving the freshest catch of the day, with stunning ocean views.',
     restaurantImage: images.images.foods.food4,
@@ -68,7 +68,7 @@ export const RESTAURANT_DUMMIES: MenuItemData[] = [
   {
     restaurantId: 4,
     name: 'The Tuscan Trattoria',
-    price: '£12.99',
+    price: 'LKR 12.99',
     description:
       'Authentic Italian dishes prepared with traditional recipes and a rustic charm.',
     restaurantImage: images.images.foods.food6,
@@ -77,7 +77,7 @@ export const RESTAURANT_DUMMIES: MenuItemData[] = [
   {
     restaurantId: 5,
     name: 'Spicy Fusion Bistro',
-    price: '£15.99',
+    price: 'LKR 15.99',
     description:
       'A vibrant eatery blending bold flavors from Asian and Latin American cuisines.',
     restaurantImage: images.images.foods.food8,
