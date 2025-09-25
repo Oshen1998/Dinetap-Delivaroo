@@ -30,9 +30,9 @@ const ProductFooter = ({ quantity, onQuantityChange, totalPrice = 220 }: Product
         >
           <AppText textStyles={footerStyles.quantityButtonText}>-</AppText>
         </TouchableOpacity>
-        <View>
+        <>
           <AppText textStyles={footerStyles.quantityText}>{quantity}</AppText>
-        </View>
+        </>
         <TouchableOpacity
           style={footerStyles.quantityButton}
           onPress={() => onQuantityChange(1)}
@@ -100,7 +100,6 @@ const footerStyles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: '#4b5563',
-    width: 40,
     textAlign: 'center',
   },
   addButton: {
